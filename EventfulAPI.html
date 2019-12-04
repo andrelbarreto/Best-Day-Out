@@ -3,6 +3,19 @@ Javascript Sample page. Enter in your app_key and any search criteria you want. 
 <script type="text/javascript" src="http://api.eventful.com/js/api">
 </script>
 <script type="text/javascript">
+
+
+function yyyymmdd() {
+  var now = new Date();
+  var y = now.getFullYear();
+  var m = now.getMonth() + 1;
+  var d = now.getDate();
+  var mm = m < 10 ? '0' + m : m;
+  var dd = d < 10 ? '0' + d : d;
+  return '' + y + mm + dd;
+}
+
+
 function show_alert()
 {
   var app_key = "StjTDwQ27dK9TNkp";
@@ -21,6 +34,7 @@ function show_alert2()
 {
    var app_key = document.getElementById("app_key");
    var where   = document.getElementById("where");
+   var date = document.getElementById("when")
    var query   = document.getElementById("query");
    var oArgs = {
       app_key: app_key,
@@ -40,13 +54,13 @@ function show_alert2()
 <body>
 <form >
   Where <input id="where"   type="text" name="where" value="San Diego"/> <br>
+  When <input id="when" type="date" name="when" value="2019-12-22"/> <br>
   Query <input id="query"   type="text" name="query" value="music"/> <br>
 </form>
 <input type="button" onclick="show_alert()" value="Single Event Lookup " /> <br>
 <input type="button" onclick="show_alert2()" value="Filtered query " /> <br>
 <br>
 <br>
-And here is the sample code:
 
 </body>
 </html>
