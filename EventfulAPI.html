@@ -1,9 +1,10 @@
 <html>
-Javascript Sample page. Enter in your app_key and any search criteria you want. <br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="modal-window.js"></script>
 <script type="text/javascript" src="http://api.eventful.com/js/api">
 </script>
 <script type="text/javascript">
-
+ var app_key = "StjTDwQ27dK9TNkp";
 
 function yyyymmdd() {
   var now = new Date();
@@ -32,7 +33,6 @@ function show_alert()
 
 function show_alert2()
 {
-   var app_key = document.getElementById("app_key");
    var where   = document.getElementById("where");
    var date = document.getElementById("when")
    var query   = document.getElementById("query");
