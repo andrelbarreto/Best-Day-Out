@@ -77,7 +77,92 @@
                 I am looking for...
                 </h2>
 
-            </div> <!--end of container-->
+                <div class="control columns is-mobile is-centered">
+                        <label class="radio">
+                          <input type="radio" name="answer">
+                          Family Event
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="answer">
+                          Event for 21+
+                        </label>
+                </div> <!--end of radio-->
+
+            <div class="container columns"> <!--search options-->
+
+                <div class="dropdown is-active column"> <!--Type-->
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <span>Event Type</span>
+                            <span class="icon is-small">
+                              <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div><!--end of dropdown-trigger-->
+
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                          <div class="dropdown-content">
+                            <a href="#" class="dropdown-item">
+                            Event Type 1
+                            </a>
+                            <a class="dropdown-item">
+                            Event Type 2
+                            </a>
+                            <a href="#" class="dropdown-item is-active">
+                            Event Type 3
+                            </a>
+                            <a href="#" class="dropdown-item">
+                            Event Type 4
+                            </a>
+                            
+                          </div> <!--end of dropdown-content-->
+                        </div> <!--end of dropdown-menu-->
+                </div><!--end of Event Type dropdown-->
+
+                
+                <div class="dropdown is-active column"> <!--dropdown for Category-->
+                        <div class="dropdown-trigger">
+                              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <span>Event Category</span>
+                                <span class="icon is-small">
+                                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                              </button>
+                        </div><!--end of dropdown-trigger-->
+    
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                              <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">
+                                Event Category 1
+                                </a>
+                                <a class="dropdown-item">
+                                Event Category 2
+                                </a>
+                                <a href="#" class="dropdown-item is-active">
+                                Event Category 3
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                Event Category 4
+                                </a>
+                                
+                              </div> <!--end of dropdown-content-->
+                        </div> <!--end of dropdown-menu-->
+                </div><!--end of Category dropdown-->
+
+                <!--location-->
+                <div class="column">
+                    <input class="input" id="City" type="text" placeholder="City">
+                </div>
+
+                <!--date-->
+                <div class="column">
+                    <input type="date">
+                    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+                </div>
+
+            </div> <!--end of container for search options-->
+                
+            </div> <!--end of container for hero-body-->
         </div> <!--end of hero-body-->
     </section> <!--end of section-->
     
