@@ -1,39 +1,3 @@
-header {
-    background-color: chartreuse ;
-    border-color: #cccccc;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 40px;
-    
-}
-h1 {
-    
-    text-emphasis-color: chartreuse;
-
-
-}
-
-body { background-color: #4aaaa5;
-
-}
-
-
-h2 {
-  text-emphasis-color: black
-
-}
-.button {
-    background-color: orange;
-
-}
-
-.footer {
-    background-color: darkgray
-
-}
-
-div {
-    font-family: 'Courier New', Courier, monospace;
-}
 
 li a{
     text-decoration-color: chartreuse;
