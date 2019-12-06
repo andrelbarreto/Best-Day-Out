@@ -278,6 +278,18 @@
             </div>
     </footer>
     
+<script>
+
+//this code makes the drop-down menu toggle back
+var dropdown = document.querySelector('.dropdown');
+    dropdown.addEventListener('click', function(event) {
+      event.stopPropagation();
+      dropdown.classList.toggle('is-active');
+    });
+
+
+</script>
+    
 </body>
 
 </html>
