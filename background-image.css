@@ -9,3 +9,7 @@
 .main-bg {
     background: url(images/photo-1429962714451-bb934ecdc4ec.jpg) no-repeat center center fixed;
 }
+
+select:after {
+    content: none;
+ }
