@@ -1,9 +1,12 @@
 
 li a{
-    background-color: chartreuse;
+    color: chartreuse;
 
 }
 
 h1 {
-    background-color: chartreuse;
+    color: black;
+}
+
+h2 { color: black;
 }
