@@ -35,3 +35,8 @@ footer {
 div {
     font-family: 'Courier New', Courier, monospace;
 }
+
+li a{
+    text-decoration-color: chartreuse;
+
+}
