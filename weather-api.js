@@ -36,9 +36,9 @@ function selectQuery () {
     dateInput = $('#date').val();
 
     //console log result of user entry
-    console.log('WA-sQ: State entered: ' + dateInput);
+    console.log('WA-sQ: Date entered: ' + dateInput);
     console.log('WA-sQ: City entered: ' + cityInput);
-    console.log('WA-sQ: Date entered: ' + stateInput);
+    console.log('WA-sQ: State entered: ' + stateInput);
 
     //check date user entered against the current date to determine whether current or future weather query must be run
     if (dateInput === currentDate) {
@@ -71,11 +71,23 @@ function displayCTWeather () {
         //console log response object
         console.log(response);
 
-        //set variable for returned temperature, convert to Farenheit and round up
-        var temp = response.data[0].temp;
+        //set variables for returned temperature and round up
+        var wtempCurrent = Math.ceil(response.data[0].temp);
+        var wtempFeels = Math.ceil(response.data[0].app_temp);
 
-        //console log location key
-        console.log(temp);
+        //set variables for UV Index, Humidity, Description and Icon
+        var wUV = response.data[0].uv;
+        var wHumidity = response.data[0].rh;
+        var wDescription = response.data[0].weather.description;
+        // var weatherIcon = https://www.weatherbit.io/static/img/icons/{icon_code}.png
+
+
+        //console log
+         console.log('This is the current temp: ' + wtempCurrent);
+         console.log('Feels like: ' + wtempFeels);
+         console.log('This is the UV Index: ' + wUV);
+         console.log('The humidity is: ' + wHumidity);
+         console.log('The weather is: ' + wDescription);
 
         //end ajax call
         });
