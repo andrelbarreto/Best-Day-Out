@@ -1,0 +1,27 @@
+/* .main-img { 
+    background-image: url(demo.jpg) ;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+}; */
+
+.main-bg {
+    background: url(images/photo-1429962714451-bb934ecdc4ec.jpg) no-repeat center center fixed;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 720px) {
+    .buttons-container {
+        flex-direction: column;
+    }
+}
+
+#main {
+    padding-top: 50px;
+    padding-bottom: 290px;
+}
