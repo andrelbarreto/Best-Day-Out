@@ -11,7 +11,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
     <!--Date-picker-->
-    <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+    <!-- <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet"> -->
 
     <!--Our CSS link goes below-->
     <link rel="stylesheet" href="background-image.css">
@@ -69,14 +69,16 @@
         
         <div class="hero-body main-img">
 
-            <div class="container has-text-centered">
+            <div class="container has-text-centered" id="title">
                 <h1 class="title">
                 Plan Your Best Day Out
                 </h1>
+                <br>
 
                 <h2 class="subtitle">
                 I am looking for...
                 </h2>
+                <br>
 
                 <!--
                 <div class="control columns is-mobile is-centered">
@@ -237,7 +239,7 @@
                 <!--date picker-->
                 <div class="column">
                     <input type="date" id="date">
-                    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+                    
                 </div>
 
             </div> <!--end of container for search options-->
@@ -279,6 +281,7 @@
                                 </div>
                             </div><!--end of card-content-->
                         </div><!--end of card-->
+                        <p class="is-size-7">Photo by Brett Sayles on Pexels</p>
                 </div><!--end of column/Family events-->
 
             <!--Restaurant-->
@@ -302,7 +305,8 @@
                             </div>
                         </div><!--end of card-content-->
                     </div><!--end of card-->
-                    <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@danielcgold?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Dan Gold"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Dan Gold</span></a>
+                    <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
+                    
                 </div><!--end of column/Restaurant-->
                 
 
@@ -311,14 +315,14 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-2by1">
-                                    <img src="" alt="21+">
+                                    <img src="images/audience-band-concert-crowd-167636.jpg" alt="21+">
                                 </figure>
                             </div> <!--end of card image-->
     
                             <div class="card-content">
                                 <div class="media">
                                     <div class="media-content">
-                                        <p class="title is-4">Picture of 21+</p>
+                                        <p class="title is-4">Event 21+</p>
                                     </div>
                                 </div><!--end of media-->
     
@@ -327,6 +331,7 @@
                                 </div>
                             </div><!--end of card-content-->
                         </div><!--end of card-->
+                        <p class="is-size-7">Photo by Thibault Trillet on Pexels</p>
                     </div><!--end of column/21+-->
            
             </div> <!--end of cards-->
@@ -359,6 +364,8 @@ var dropdown = document.querySelector('.dropdown');
       dropdown.classList.toggle('is-active');
     }); 
 </script>
+
+<!-- <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script> -->
 
 <!-- Script for Sarah D -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
