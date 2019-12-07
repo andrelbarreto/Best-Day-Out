@@ -6,15 +6,12 @@
 //define variable for html search button
 var searchButton = $(".button");
 
-//define variable that captures the city indicated by user, which by default is blank
+//define variables that capture the city, state, and date indicated by user, by default are blank
 var cityInput = "";
-
-//define variable that captures the state indicated by user, which by default is blank
 var stateInput = "";
-
 var dateInput = "";
 
-//define variables that represent the APIKey(s if needed)
+//define variables that represent the WeatherBit APIKey
 var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 
 //define current date using a moment
@@ -33,32 +30,33 @@ searchButton.on("click", selectQuery);
 //check user input date against current date and select current weather query or forecast query
 function selectQuery () {
    
-    //define variable that captures the city, state and date entered by the user
+    //captures the city, state and date variables to values entered by the user
     cityInput = $('#City').val();
     stateInput = $('#state').val(); 
     dateInput = $('#date').val();
 
     //console log result of user entry
-    console.log('WA: This is the state entered: ' + dateInput);
-    console.log('WA: This is the city entered: ' + cityInput);
-    console.log('WA: This is the date entered: ' + stateInput);
+    console.log('WA-sQ: State entered: ' + dateInput);
+    console.log('WA-sQ: City entered: ' + cityInput);
+    console.log('WA-sQ: Date entered: ' + stateInput);
 
+    //check date user entered against the current date to determine whether current or future weather query must be run
     if (dateInput === currentDate) {
-        console.log('these dates are the same');
+        console.log('WA-sQ: Dates both = today, query for current weather');
        
-        queryCurrentWeatherAPI ()
+        displayCTWeather ()
     }
     else if (dateInput > currentDate) {
-        console.log("the date selected is later than today's date");
+        console.log("WA-sQ: Date entered is later than today's date, query for forecast");
 
-        queryForecastAPI ();
+        displayFTWeather ();
     }
 
 // end select query function
 }
 
 //query current weather conditions and render details
-function queryCurrentWeatherAPI () {
+function displayCTWeather () {
 
     //define variable that represents current conditions query info
     var queryCurrentWeather = "https://api.weatherbit.io/v2.0/current?" + "city=" + cityInput + "," + stateInput + "&units=I" + "&key=" + APIKey;
@@ -86,7 +84,7 @@ function queryCurrentWeatherAPI () {
 }
 
 //query forecast weather conditions and render details
-function queryForecastAPI () {
+function displayFTWeather () {
 
     //define variable that represents forecast conditions query info
     var queryForecast = "https://api.weatherbit.io/v2.0/forecast/daily?" + "city=" + cityInput + "," + stateInput + "&units=I" + "&key=" + APIKey;
