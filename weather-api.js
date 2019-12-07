@@ -124,23 +124,42 @@ function displayFTWeather () {
         for (var i = 0; i < response.data.length; i++) {
 
             if (dateInput === response.data[i].valid_date) {
-                console.log(dateInput + " = " + response.data[i].valid_date + ' so we will provide weather details');
+                console.log("WA-fW: dateInput" + " = " + response.data[i].valid_date + " so provide weather details");
 
                 result = 'yes';
-                console.log(result);
+                console.log("WA-fw: " + result);
+
+                // set variables for returned temperature and round up
+                var wftemp = Math.ceil(response.data[i].temp);
+                var wftempLow = Math.ceil(response.data[i].low_temp);
+
+                // set variables for UV Index, Humidity, Description and Icon
+                var wftempHigh = Math.ceil(response.data[i].high_temp);
+                var wfHumidity = response.data[i].rh;
+                var wfUV = response.data[i].uv;
+                var wfDescription = response.data[i].weather.description;
+                // var weatherIcon = https://www.weatherbit.io/static/img/icons/{icon_code}.png
+                                    
+                        
+                //console log results
+                console.log('The temp will be: ' + wftemp);
+                console.log('The temp low will be: ' + wftempLow);
+                console.log('The temp high will be: ' + wftempHigh);
+                console.log('The humidity will be: ' + wfHumidity);
+                console.log('THe UV Index will be: ' + wfUV);
+                console.log('The weather will be: ' + wfDescription);
 
             }
 
-            // if result not found for date entered by user, indicate weather information is not yet available
-            if (result !== 'yes') {
+         // end for loop    
+        }
+
+        // if result not found for date entered by user, indicate weather information is not yet available
+        if (result !== 'yes') {
             console.log('The weather is not yet available for this date. Stay tuned!');
             }
 
-         //end for loop    
-        }
-
-
-        //end ajax call
+        // end ajax call
         });
  
 }
