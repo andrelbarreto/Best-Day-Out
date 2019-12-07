@@ -1,13 +1,20 @@
-li {
-    color: chartreuse;
+Styling with Bulma
+div {
+    color: chartreuse
+}
 
+li {
+    background-color: chartreuse;
+}
+
+.footer{
+    background-color:lightgray  ;
 }
 
 h1 {
-    color: black;
+    background-color: chartreuse;
 }
+
 h2 {
-    color: black;
+    background-color: chartreuse;
 }
-
-
