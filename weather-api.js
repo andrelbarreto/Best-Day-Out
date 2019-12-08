@@ -20,7 +20,7 @@ var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 
 // define current date using a moment
 var currentDate = moment().format('YYYY-MM-DD');
-console.log('WA: This is the current date: ' + currentDate);
+// console.log('WA: This is the current date: ' + currentDate);
 
 var currentDateMMMM = moment().format('MMMM D');
 
@@ -44,18 +44,18 @@ function selectQuery () {
     dateInput = $('#date').val();
 
     // console log result of user entry
-    console.log('WA-sQ: Date entered: ' + dateInput);
-    console.log('WA-sQ: City entered: ' + cityInput);
-    console.log('WA-sQ: State entered: ' + stateInput);
+    // console.log('WA-sQ: Date entered: ' + dateInput);
+    // console.log('WA-sQ: City entered: ' + cityInput);
+    // console.log('WA-sQ: State entered: ' + stateInput);
 
     // check date user entered against the current date to determine whether current or future weather query must be run
     if (dateInput === currentDate) {
-        console.log('WA-sQ: Dates both = today, query for current weather');
+        // console.log('WA-sQ: Dates both = today, query for current weather');
        
         displayCTWeather ()
     }
     else if (dateInput > currentDate) {
-        console.log("WA-sQ: Date entered is later than today's date, query for forecast");
+        // console.log("WA-sQ: Date entered is later than today's date, query for forecast");
 
         displayFTWeather ();
     }
@@ -81,7 +81,7 @@ function displayCTWeather () {
     
         // console log response object
         console.log('WA-cW: current weather query was run');
-        console.log(response);
+        // console.log(response);
 
         //define weather element to which projected forecast will be added
         var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
@@ -129,11 +129,11 @@ function displayCTWeather () {
         
         
        // console log results
-       console.log('This is the current temp: ' + wtempCurrent);
-       console.log('Feels like: ' + wtempFeels);
-       console.log('This is the UV Index: ' + wUV);
-       console.log('The humidity is: ' + wHumidity);
-       console.log('The weather is: ' + wDescription);
+    //    console.log('This is the current temp: ' + wtempCurrent);
+    //    console.log('Feels like: ' + wtempFeels);
+    //    console.log('This is the UV Index: ' + wUV);
+    //    console.log('The humidity is: ' + wHumidity);
+    //    console.log('The weather is: ' + wDescription);
 
 
         //end ajax call
@@ -157,7 +157,7 @@ function displayFTWeather () {
     
         //console log response object
         console.log('WA-cW: forecast weather query was run');
-        console.log(response);
+        // console.log(response);
 
         //define weather element to which projected forecast will be added
         var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
@@ -180,10 +180,10 @@ function displayFTWeather () {
         for (var i = 0; i < response.data.length; i++) {
 
             if (dateInput === response.data[i].valid_date) {
-                console.log("WA-fW: dateInput" + " = " + response.data[i].valid_date + " so provide weather details");
+                // console.log("WA-fW: dateInput" + " = " + response.data[i].valid_date + " so provide weather details");
 
                 result = 'yes';
-                console.log("WA-fw: " + result);
+                // console.log("WA-fw: " + result);
 
                 // set variables for returned temperature and round up
                 
@@ -227,12 +227,12 @@ function displayFTWeather () {
                                             
                         
                 //console log results
-                console.log('The temp will be: ' + wftemp);
-                console.log('The temp low will be: ' + wftempLow);
-                console.log('The temp high will be: ' + wftempHigh);
-                console.log('The humidity will be: ' + wfHumidity);
-                console.log('THe UV Index will be: ' + wfUV);
-                console.log('The weather will be: ' + wfDescription);
+                // console.log('The temp will be: ' + wftemp);
+                // console.log('The temp low will be: ' + wftempLow);
+                // console.log('The temp high will be: ' + wftempHigh);
+                // console.log('The humidity will be: ' + wfHumidity);
+                // console.log('THe UV Index will be: ' + wfUV);
+                // console.log('The weather will be: ' + wfDescription);
 
                 
 
@@ -285,8 +285,8 @@ function addProjectedFT () {
             
             var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('MMMM D');
             var updatedDate = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('YYYY-MM-DD');
-            console.log("This is the long date: " + longDateStr);
-            console.log("This is the updated date: " + updatedDate);
+            // console.log("This is the long date: " + longDateStr);
+            // console.log("This is the updated date: " + updatedDate);
             
             for (var i = 0; i < response.data.length; i++) {
                     // console.log("This is the updated date: " + updatedDate);
@@ -322,4 +322,5 @@ function addProjectedFT () {
 // close function
 }
 
+//run the display current weather function at startup
 displayCTWeather ();
