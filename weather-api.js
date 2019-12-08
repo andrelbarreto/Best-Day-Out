@@ -86,6 +86,9 @@ function displayCTWeather () {
         console.log('WA-cW: current weather query was run');
         console.log(response);
 
+        var weatherCard = $('#weather-primary');
+        weatherCard.empty();
+
         // set variables for returned temperature and round up
         var wcityName = response.data[0].city_name;
         var wtempCurrent = Math.ceil(response.data[0].temp);
@@ -98,7 +101,7 @@ function displayCTWeather () {
         var weatherIcon = response.data[0].weather.icon;
 
         // create divs and append to card in index file
-        var weatherCard = $('#weather-primary');
+        
         // var locationIcon = $<'span class= tbd'>
         var levelCurrentDiv = $('<div class=level id="city-temp">');
         var wcityNameDiv = $('<span class=city-name-div>').attr('class', 'is-size-3').text(wcityName);
@@ -151,6 +154,9 @@ function displayFTWeather () {
         console.log('WA-cW: forecast weather query was run');
         console.log(response);
 
+        var weatherCard = $('#weather-primary');
+        weatherCard.empty();
+
         // set variable to return number value of response length
         // var responseLength = response.data.length;
         // console.log('This is the response length: ' + responseLength);
@@ -168,16 +174,45 @@ function displayFTWeather () {
                 console.log("WA-fw: " + result);
 
                 // set variables for returned temperature and round up
+                
                 var wftemp = Math.ceil(response.data[i].temp);
                 var wftempLow = Math.ceil(response.data[i].low_temp);
                 var wftempHigh = Math.ceil(response.data[i].high_temp);
+                
 
                 // set variables for UV Index, Humidity, Description and Icon
+                var wfcityName = cityInput;
                 var wfHumidity = response.data[i].rh;
                 var wfUV = response.data[i].uv;
                 var wfDescription = response.data[i].weather.description;
+                var wfweatherIcon = response.data[i].weather.icon;
+
                 // var weatherIcon = https://www.weatherbit.io/static/img/icons/{icon_code}.png
-                                    
+
+
+                // create divs and append to card in index file
+                
+                // var locationIcon = $<'span class= tbd'>
+                var levelCurrentDiv = $('<div class=level id="city-temp">');
+                var wfcityNameDiv = $('<span class=city-name-div>').attr('class', 'is-size-3').text(wfcityName);
+                var wftempForecastDiv = $('<div class=temp-forecast-div>').attr('class', 'is-size-3').text(wftemp + String.fromCharCode(176));
+                var wftempIcon = $('<img height="40" width="40" class=is-marginless>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wfweatherIcon + ".png");
+
+                var levelDetailDiv = $('<div class=level id="temp-details">');
+                var wftempLowDiv = $('<span class=temp-feels-div>').text("Low:  " 
+                + wftempLow + " ");
+                var wftempHighDiv = $('<span class=temp-feels-div>').text("High: " 
+                + wftempHigh);
+                var wfUVDiv = $('<p class=uv-div>').text("UV Index: " + wfUV);
+                var wfHumidityDiv = $('<div class=humidity-div>').text("Humidity: " + wfHumidity + "%");
+                var wfDescriptionDiv = $('<div class=descrip-div>').text(wfDescription);
+                
+                weatherCard.append(levelCurrentDiv, levelDetailDiv, wftempLowDiv, wftempHighDiv, wfUVDiv, wfHumidityDiv)
+                levelCurrentDiv.append(wfcityNameDiv, wftempForecastDiv);
+
+                //will likely remove this and fix spacing on card
+                levelDetailDiv.append(wfDescriptionDiv, wftempIcon);
+                                            
                         
                 //console log results
                 console.log('The temp will be: ' + wftemp);
