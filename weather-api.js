@@ -3,6 +3,8 @@
 // 1: check user input date against current date and select current weather query or forecast query
 // 2: use information entered by user to query Weatherbit.io
 
+
+
 // define variable for html search button
 var searchButton = $(".button");
 
@@ -18,7 +20,10 @@ var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 var currentDate = moment().format('YYYY-MM-DD');
 console.log('WA: This is the current date: ' + currentDate);
 
+var currentDateMMMM = moment().format('MMMM D');
+
 var weatherImage = $('#weather-image').attr('src', 'images/weatherbck4.jpg');
+
 
 // **CLICK EVENT** //
 
@@ -62,6 +67,9 @@ function displayCTWeather () {
     // define variable that represents current conditions query info
     var queryCurrentWeather = "https://api.weatherbit.io/v2.0/current?" + "city=" + cityInput + "," + stateInput + "&units=I" + "&key=" + APIKey;
 
+    // define variable that represents forecast conditions query info
+    var queryForecast = "https://api.weatherbit.io/v2.0/forecast/daily?" + "city=" + cityInput + "," + stateInput + "&units=I" + "&key=" + APIKey;
+
     $.ajax({
         url: queryCurrentWeather,
         method: "GET"
@@ -73,8 +81,15 @@ function displayCTWeather () {
         console.log('WA-cW: current weather query was run');
         console.log(response);
 
+        //define weather element to which projected forecast will be added
         var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
+
+        //define weather forecast element to which projected forecast will be added
+        var weatherForecastID = $('#weather-forecast.content').addClass('has-text-left');
+        
+        //clear sections of any existing divs
         weatherCard.empty();
+        weatherForecastID.empty();
 
         // set variables for returned temperature and round up
         var wcityName = response.data[0].city_name;
@@ -93,7 +108,7 @@ function displayCTWeather () {
         var levelCurrentDiv = $('<div class=level id="city-temp">');
         var wcityNameDiv = $('<span class=city-name-div>').attr('class', 'is-size-3').text(wcityName);
         var wtempCurrentDiv = $('<div class=temp-current-div>').attr('class', 'is-size-3').text(wtempCurrent + String.fromCharCode(176));
-        var wtempIcon = $('<img height="40" width="40" class=is-marginless>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcon + ".png");
+        var wtempIcon = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcon + ".png");
 
         var levelDetailDiv = $('<div class=level id="temp-details">');
         var wtempFeelsDiv = $('<div class=temp-feels-div>').text("Feels like: " 
@@ -109,7 +124,34 @@ function displayCTWeather () {
         levelDetailDiv.append(wDescriptionDiv, wtempIcon);
 
 
+        $.ajax({
+            url: queryForecast,
+            method: "GET"
+            })
+            // store retrieved data inside response object
+            .then(function(response) {
+        
+                var weatherForecastID = $('#weather-forecast.content').addClass('has-text-left');
+                
+        
+                for (var i = 1; i < 6; i++) {
 
+                    var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+i, 'days').format('MMMM D');
+                    console.log("This is the long date string: " + longDateStr);
+
+        
+                    var wftempLow = Math.ceil(response.data[i].low_temp);
+                    var wftempHigh = Math.ceil(response.data[i].high_temp);
+                    var weatherIcons = response.data[i].weather.icon
+                    var wtempIcons = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcons + ".png");
+        
+                    var projectedForecast = $('<div>').html(longDateStr + " " + wftempLow + String.fromCharCode(176) + " " + wftempHigh + String.fromCharCode(176) + " ");
+        
+                    weatherForecastID.append(projectedForecast, wtempIcons);
+                }
+            });
+        
+        
        // console log results
        console.log('This is the current temp: ' + wtempCurrent);
        console.log('Feels like: ' + wtempFeels);
@@ -141,8 +183,15 @@ function displayFTWeather () {
         console.log('WA-cW: forecast weather query was run');
         console.log(response);
 
+        //define weather element to which projected forecast will be added
         var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
+
+        //define weather forecast element to which projected forecast will be added
+        var weatherForecastID = $('#weather-forecast.content').addClass('has-text-left');
+        
+        //clear sections of any existing divs
         weatherCard.empty();
+        weatherForecastID.empty();
 
         // set variable to return number value of response length
         // var responseLength = response.data.length;
@@ -183,7 +232,7 @@ function displayFTWeather () {
                 var levelCurrentDiv = $('<div class=level id="city-temp">');
                 var wfcityNameDiv = $('<span class=city-name-div>').attr('class', 'is-size-3').text(wfcityName);
                 var wftempForecastDiv = $('<div class=temp-forecast-div>').attr('class', 'is-size-3').text(wftemp + String.fromCharCode(176));
-                var wftempIcon = $('<img height="40" width="40" class=is-marginless>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wfweatherIcon + ".png");
+                var wftempIcon = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wfweatherIcon + ".png");
 
                 var levelDetailDiv = $('<div class=level id="temp-details">');
                 var wftempLowDiv = $('<span class=temp-feels-div>').text("Low:  " 
@@ -209,17 +258,41 @@ function displayFTWeather () {
                 console.log('THe UV Index will be: ' + wfUV);
                 console.log('The weather will be: ' + wfDescription);
 
+                
+
+
+            //close if statement
             }
 
-         // end for loop    
+         // close for loop    
         }
 
         // if result not found for date entered by user, indicate weather information is not yet available
         if (result !== 'yes') {
+
             console.log('The weather is not yet available for this date. Stay tuned!');
             var noResults = $('<p>').text("The weather is not yet available for this date. Stay tuned!");
             weatherCard.append(noResults);
-            }
+
+        }
+
+        //create for loop for adding projected forecast section to card
+        for (var i = 1; i < 6; i++) {
+        
+            var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+i, 'days').format('MMMM D');
+            console.log("This is the long date string: " + longDateStr);
+
+
+            var wftempLow = Math.ceil(response.data[i].low_temp);
+            var wftempHigh = Math.ceil(response.data[i].high_temp);
+            var weatherIcons = response.data[i].weather.icon
+            var wtempIcons = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcons + ".png");
+
+            var projectedForecast = $('<div>').html(longDateStr + " " + wftempLow + String.fromCharCode(176) + " " + wftempHigh + String.fromCharCode(176) + " ");
+
+            weatherForecastID.append(projectedForecast, wtempIcons);
+        }
+
 
         // end ajax call
         });
