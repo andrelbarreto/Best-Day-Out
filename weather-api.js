@@ -8,10 +8,12 @@
 // define variable for html search button
 var searchButton = $(".button");
 
-// define variables that capture the city, state, and date indicated by user, by default are blank
-var cityInput = "";
-var stateInput = "";
-var dateInput = "";
+// define variables that capture the city, state, and date indicated by user, by default are Chicago
+var cityInput = "Chicago";
+var stateInput = "IL";
+var dateInput = currentDate;
+
+
 
 // define variables that represent the WeatherBit APIKey
 var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
@@ -287,8 +289,8 @@ function addProjectedFT () {
             console.log("This is the updated date: " + updatedDate);
             
             for (var i = 0; i < response.data.length; i++) {
-                    console.log("This is the updated date: " + updatedDate);
-                    console.log("This is the response date searched: " + response.data[i].valid_date);
+                    // console.log("This is the updated date: " + updatedDate);
+                    // console.log("This is the response date searched: " + response.data[i].valid_date);
 
                     
                 if (updatedDate === response.data[i].valid_date) {
@@ -319,3 +321,5 @@ function addProjectedFT () {
 
 // close function
 }
+
+displayCTWeather ();
