@@ -35,13 +35,13 @@
                             <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
                         </a> -->
 
-                        <!--navbar burger
-                            <span class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span> -->
-
+                        <!--navbar burger -->
+                            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        </a>
+                        
                     </div>
                     <div id="navbarMenu" class="navbar-menu">
                         <div class="navbar-end">
@@ -50,17 +50,7 @@
                                     <li class="is-active"><a>Home</a></li>
                                     <li><a href="">Our Team</a></li>
                                     <li><a href="">Contact</a></li>
-                                </ul>
-
-                                <!-- Source 
-                                <span class="navbar-item">
-                                    <a class="button is-black is-outlined" href="https://github.com/BulmaTemplates/bulma-templates/blob/master/templates/hero.html">
-                                        <span class="icon">
-                                            <i class="fa fa-github"></i>
-                                        </span>
-                                        <span title="Hello from the other side">View Source</span>
-                                    </a>
-                                </span> -->
+                                </ul> 
 
                             </div> <!--end of tab is-right-->
                         </div> <!--end of navbar-end-->
@@ -74,7 +64,6 @@
         
         <div class="hero-body main-img" id=main>
 
-            
 
             <div class="container has-text-centered">
                 <h1 class="title">
@@ -85,18 +74,6 @@
                 I am looking for...
                 </h2>
                 <br>
-
-                <!--
-                <div class="control columns is-mobile is-centered">
-                        <label class="radio">
-                          <input type="radio" name="answer">
-                          Family Event
-                        </label>
-                        <label class="radio">
-                          <input type="radio" name="answer">
-                          Event for 21+
-                        </label>
-                </div> end of radio-->
 
             <div class="container columns buttons-container"> <!--search options-->
 
@@ -148,7 +125,7 @@
                                 Family
                                 </a>
                                 <a href="#" class="dropdown-item">
-                                Muisc
+                                Music
                                 </a>
                                 <a class="dropdown-item">
                                 Sports
@@ -235,7 +212,7 @@
 
             </div> <!--end of container for search options-->
 
-            <button class="button">Search</button>
+            <button class="button is-primary">Search</button>
 
 
             <br><br>
@@ -245,13 +222,12 @@
 
             </div> <!--end of container for hero-body-->
         </div> <!--end of hero-body-->
-        <!-- widget for ticketmaster !-->
-        <div w-type="event-discovery" w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA" w-keyword="Music" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-postalcode="IL" w-radius="25" w-city="Chicago" w-period="week" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_fzfcan" w-countrycode="US" w-source="" w-branding="Ticketmaster" w-latlong=""></div>
         
+       
         
     </section> <!--end of section for hero-->
 
-    <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@anthonydelanoix?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Anthony DELANOIX"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Anthony DELANOIX</span></a>
+    <p class="is-size-7">Photo by Anthony DELANOIX on Unsplash</p>
 
     <section class="section"> 
         <div class="container has-text-centered">
@@ -259,30 +235,31 @@
 
             
             <div class="columns is-centered" style="padding: 2rem"> <!--3 cards with img and text-->
-
-                <!--Family Event-->
+                <!-- widget for ticketmaster !-->
+                <div w-type="event-discovery" w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="450" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Chicago" w-period="week" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_79seb" w-countrycode="US" w-source="" w-branding="Ticketmaster" w-showfulleventsnames="true" w-latlong=""></div>
+                <!--Family Event
                     <div class="column">
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-2by1">
                                     <img src="images/pexels-photo-1378866.jpeg" alt="Family Event">
                                 </figure>
-                            </div> <!--end of card image-->
+                            </div> 
 
                             <div class="card-content">
                                 <div class="media">
                                     <div class="media-content">
                                         <p class="title is-4">Family Event</p>
                                     </div>
-                                </div><!--end of media-->
+                                </div>
     
                                 <div class="content">
                                     Some Text
                                 </div>
-                            </div><!--end of card-content-->
-                        </div><!--end of card-->
+                            </div>
+                        </div>
                         <p class="is-size-7">Photo by Brett Sayles on Pexels</p>
-                </div><!--end of column/Family events-->
+                </div> -->
 
             <!--Restaurant-->
                 <div class="column">
