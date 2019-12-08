@@ -230,6 +230,8 @@ function displayFTWeather () {
         // if result not found for date entered by user, indicate weather information is not yet available
         if (result !== 'yes') {
             console.log('The weather is not yet available for this date. Stay tuned!');
+            var noResults = $('<p>').text("The weather is not yet available for this date. Stay tuned!");
+            weatherCard.append(noResults);
             }
 
         // end ajax call
