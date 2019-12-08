@@ -134,21 +134,46 @@ function displayCTWeather () {
                 var weatherForecastID = $('#weather-forecast.content').addClass('has-text-left');
                 
         
-                for (var i = 1; i < 6; i++) {
-
-                    var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+i, 'days').format('MMMM D');
-                    console.log("This is the long date string: " + longDateStr);
-
+                //create for loop for adding projected forecast section to card
+        for (var j = 1; j < 6; j++) {
         
+            var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('MMMM D');
+            var updatedDate = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('YYYY-MM-DD');
+            console.log("This is the long date: " + longDateStr);
+            console.log("This is the updated date: " + updatedDate);
+            
+            for (var i = 0; i < response.data.length; i++) {
+                    console.log("This is the updated date: " + updatedDate);
+                    console.log("This is the response date searched: " + response.data[i].valid_date);
+
+                    
+                if (updatedDate === response.data[i].valid_date) {
+    
                     var wftempLow = Math.ceil(response.data[i].low_temp);
                     var wftempHigh = Math.ceil(response.data[i].high_temp);
                     var weatherIcons = response.data[i].weather.icon
                     var wtempIcons = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcons + ".png");
-        
+    
                     var projectedForecast = $('<div>').html(longDateStr + " " + wftempLow + String.fromCharCode(176) + " " + wftempHigh + String.fromCharCode(176) + " ");
-        
+    
                     weatherForecastID.append(projectedForecast, wtempIcons);
+
+                // end if statement
                 }
+
+                // end internal for loop
+                }
+
+                
+            //end for loop 
+            }
+
+            // end else statement
+        
+                
+    
+
+            // end forecast ajax call
             });
         
         
@@ -274,25 +299,45 @@ function displayFTWeather () {
             var noResults = $('<p>').text("The weather is not yet available for this date. Stay tuned!");
             weatherCard.append(noResults);
 
-        }
+        } else if (result == 'yes') {
 
         //create for loop for adding projected forecast section to card
-        for (var i = 1; i < 6; i++) {
+        for (var j = 1; j < 6; j++) {
         
-            var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+i, 'days').format('MMMM D');
-            console.log("This is the long date string: " + longDateStr);
+            var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('MMMM D');
+            var updatedDate = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('YYYY-MM-DD');
+            console.log("This is the long date: " + longDateStr);
+            console.log("This is the updated date: " + updatedDate);
+            
+            for (var i = 0; i < response.data.length; i++) {
+                    console.log("This is the updated date: " + updatedDate);
+                    console.log("This is the response date searched: " + response.data[i].valid_date);
 
+                    
+                if (updatedDate === response.data[i].valid_date) {
+    
+                    var wftempLow = Math.ceil(response.data[i].low_temp);
+                    var wftempHigh = Math.ceil(response.data[i].high_temp);
+                    var weatherIcons = response.data[i].weather.icon
+                    var wtempIcons = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcons + ".png");
+    
+                    var projectedForecast = $('<div>').html(longDateStr + " " + wftempLow + String.fromCharCode(176) + " " + wftempHigh + String.fromCharCode(176) + " ");
+    
+                    weatherForecastID.append(projectedForecast, wtempIcons);
 
-            var wftempLow = Math.ceil(response.data[i].low_temp);
-            var wftempHigh = Math.ceil(response.data[i].high_temp);
-            var weatherIcons = response.data[i].weather.icon
-            var wtempIcons = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcons + ".png");
+                // end if statement
+                }
 
-            var projectedForecast = $('<div>').html(longDateStr + " " + wftempLow + String.fromCharCode(176) + " " + wftempHigh + String.fromCharCode(176) + " ");
+                // end internal for loop
+                }
 
-            weatherForecastID.append(projectedForecast, wtempIcons);
+                
+            //end for loop 
+            }
+
+            // end else statement
         }
-
+        
 
         // end ajax call
         });
