@@ -96,7 +96,6 @@ function displayCTWeather () {
         var wHumidity = response.data[0].rh;
         var wDescription = response.data[0].weather.description;
         var weatherIcon = response.data[0].weather.icon;
-        // var weatherIcon = https://www.weatherbit.io/static/img/icons/{icon_code}.png
 
         // create divs and append to card in index file
         var weatherCard = $('#weather-primary');
@@ -115,10 +114,11 @@ function displayCTWeather () {
         
         weatherCard.append(levelCurrentDiv, levelDetailDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv)
         levelCurrentDiv.append(wcityNameDiv, wtempCurrentDiv);
+
+        //will likely remove this and fix spacing on card
         levelDetailDiv.append(wDescriptionDiv, wtempIcon);
 
 
-        
 
        // console log results
        console.log('This is the current temp: ' + wtempCurrent);
