@@ -18,6 +18,20 @@ var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 var currentDate = moment().format('YYYY-MM-DD');
 console.log('WA: This is the current date: ' + currentDate);
 
+// var nameTitle = $('p.title.is-4');
+
+// nameTitle.text('Sarah testing');
+
+//         var weatherCard = $('#weather-current');
+//         var wcityNameDiv = $('<p class=city-name-div>' + 'this is working' + '</p>');
+//         var wtempCurrentDiv = $('<p class=temp-current-div>');
+//         var wtempFeelsDiv = $('<p class=temp-feels-div>');
+//         var wUVDiv = $('<p class=uv-div>');
+//         var wHumidityDiv = $('<p class=humidity-div>');
+//         var wDescriptionDiv = $('<p class=descrip-div>');
+
+//         weatherCard.append(wcityNameDiv, wtempCurrentDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv, wDescriptionDiv);
+
 
 // **CLICK EVENT** //
 
@@ -73,6 +87,7 @@ function displayCTWeather () {
         console.log(response);
 
         // set variables for returned temperature and round up
+        var wcityName = response.data[0].city_name;
         var wtempCurrent = Math.ceil(response.data[0].temp);
         var wtempFeels = Math.ceil(response.data[0].app_temp);
 
@@ -80,15 +95,38 @@ function displayCTWeather () {
         var wUV = response.data[0].uv;
         var wHumidity = response.data[0].rh;
         var wDescription = response.data[0].weather.description;
+        var weatherIcon = response.data[0].weather.icon;
         // var weatherIcon = https://www.weatherbit.io/static/img/icons/{icon_code}.png
 
+        // create divs and append to card in index file
+        var weatherCard = $('#weather-primary');
+        // var locationIcon = $<'span class= tbd'>
+        var levelCurrentDiv = $('<div class=level id="city-temp">');
+        var wcityNameDiv = $('<span class=city-name-div>').attr('class', 'is-size-3').text(wcityName);
+        var wtempCurrentDiv = $('<div class=temp-current-div>').attr('class', 'is-size-3').text(wtempCurrent + String.fromCharCode(176));
+        var wtempIcon = $('<img height="40" width="40" class=is-marginless>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcon + ".png");
 
-        // console log results
-         console.log('This is the current temp: ' + wtempCurrent);
-         console.log('Feels like: ' + wtempFeels);
-         console.log('This is the UV Index: ' + wUV);
-         console.log('The humidity is: ' + wHumidity);
-         console.log('The weather is: ' + wDescription);
+        var levelDetailDiv = $('<div class=level id="temp-details">');
+        var wtempFeelsDiv = $('<div class=temp-feels-div>').text("Feels like: " 
+         + wtempFeels);
+        var wUVDiv = $('<p class=uv-div>').text("UV Index: " + wUV);
+        var wHumidityDiv = $('<div class=humidity-div>').text("Humidity: " + wHumidity + "%");
+        var wDescriptionDiv = $('<div class=descrip-div>').text(wDescription);
+        
+        weatherCard.append(levelCurrentDiv, levelDetailDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv)
+        levelCurrentDiv.append(wcityNameDiv, wtempCurrentDiv);
+        levelDetailDiv.append(wDescriptionDiv, wtempIcon);
+
+
+        
+
+       // console log results
+       console.log('This is the current temp: ' + wtempCurrent);
+       console.log('Feels like: ' + wtempFeels);
+       console.log('This is the UV Index: ' + wUV);
+       console.log('The humidity is: ' + wHumidity);
+       console.log('The weather is: ' + wDescription);
+
 
         //end ajax call
         });
@@ -132,9 +170,9 @@ function displayFTWeather () {
                 // set variables for returned temperature and round up
                 var wftemp = Math.ceil(response.data[i].temp);
                 var wftempLow = Math.ceil(response.data[i].low_temp);
+                var wftempHigh = Math.ceil(response.data[i].high_temp);
 
                 // set variables for UV Index, Humidity, Description and Icon
-                var wftempHigh = Math.ceil(response.data[i].high_temp);
                 var wfHumidity = response.data[i].rh;
                 var wfUV = response.data[i].uv;
                 var wfDescription = response.data[i].weather.description;
