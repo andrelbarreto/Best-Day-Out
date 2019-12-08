@@ -18,20 +18,7 @@ var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 var currentDate = moment().format('YYYY-MM-DD');
 console.log('WA: This is the current date: ' + currentDate);
 
-// var nameTitle = $('p.title.is-4');
-
-// nameTitle.text('Sarah testing');
-
-//         var weatherCard = $('#weather-current');
-//         var wcityNameDiv = $('<p class=city-name-div>' + 'this is working' + '</p>');
-//         var wtempCurrentDiv = $('<p class=temp-current-div>');
-//         var wtempFeelsDiv = $('<p class=temp-feels-div>');
-//         var wUVDiv = $('<p class=uv-div>');
-//         var wHumidityDiv = $('<p class=humidity-div>');
-//         var wDescriptionDiv = $('<p class=descrip-div>');
-
-//         weatherCard.append(wcityNameDiv, wtempCurrentDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv, wDescriptionDiv);
-
+var weatherImage = $('#weather-image').attr('src', 'images/weatherbck4.jpg');
 
 // **CLICK EVENT** //
 
@@ -86,7 +73,7 @@ function displayCTWeather () {
         console.log('WA-cW: current weather query was run');
         console.log(response);
 
-        var weatherCard = $('#weather-primary');
+        var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
         weatherCard.empty();
 
         // set variables for returned temperature and round up
@@ -154,7 +141,7 @@ function displayFTWeather () {
         console.log('WA-cW: forecast weather query was run');
         console.log(response);
 
-        var weatherCard = $('#weather-primary');
+        var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
         weatherCard.empty();
 
         // set variable to return number value of response length
