@@ -9,17 +9,18 @@
 // define variable for html search button
 var searchButton = $(".button");
 
-// define variables that capture the city, state, and date indicated by user, by default are Chicago
-var cityInput = "Chicago";
-var stateInput = "IL";
-var dateInput = currentDate;
-
-// define variables that represent the WeatherBit APIKey
-var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
-
 // define current date using a moment
 var currentDate = moment().format('YYYY-MM-DD');
 // console.log('WA: This is the current date: ' + currentDate);
+
+// define variables that capture the city, state, and date indicated by user, by default are Chicago
+var cityInput = "Chicago";
+var stateInput = "IL";
+var dateInput = currentDate
+console.log(dateInput);
+
+// define variables that represent the WeatherBit APIKey
+var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 
 //set date with full word month and day format
 var currentDateMD = moment().format('MMMM D');
@@ -32,6 +33,9 @@ var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-
 
 //define weather forecast element to which projected forecast will be added
 var weatherForecastID = $('#weather-forecast.content').addClass('has-text-left');
+
+//define variable into which weather icon data will be pushed for photos
+var weatherIcon = "";
 
 
 // **CLICK EVENT** //
@@ -101,8 +105,10 @@ function displayCTWeather () {
         var wUV = Math.ceil(response.data[0].uv);
         var wHumidity = response.data[0].rh;
         var wDescription = response.data[0].weather.description;
-        var wWindSpeed = response.data[0].wind_spd;
-        var weatherIcon = response.data[0].weather.icon;
+        // var wWindSpeed = response.data[0].wind_spd;
+        var wIcon = response.data[0].weather.icon;
+        weatherIcon = wIcon;
+        
 
         // create divs and append to weather card
         
@@ -120,23 +126,24 @@ function displayCTWeather () {
         //define variables that will be appended to the second level div
         var wDescriptionDiv = $('<div id=description>').addClass('level-left').text(wDescription);
 
-        var wtempIcon = $('<img width=60px height=60px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + weatherIcon + ".png")
+        var wtempIcon = $('<img width=60px height=60px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wIcon + ".png")
 
         //define remaining weather variables and divs to be created
         var wtempFeelsDiv = $('<div id=temp-feels>').text("Feels like: " 
          + wTempFeels);
         var wUVDiv = $('<div id=uv>').text("UV Index: " + wUV);
         var wHumidityDiv = $('<div id=humidity>').text("Humidity: " + wHumidity + "%");
-        var wWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
+        // var wWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
         
         //append weather details and divs to weather card
-        weatherCard.append(levelCurrentDiv, levelDetailDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv, wWindSpeedDiv);
+        weatherCard.append(levelCurrentDiv, levelDetailDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv);
 
         levelCurrentDiv.append(wcityNameDiv, wtempIcon);
         levelDetailDiv.append(wtempCurrentDiv, wDescriptionDiv);
 
         //run projected forecast function to add future weather details to card
         addProjectedFT ();
+        setWIconImage ();
         
         
        // console log results
@@ -173,6 +180,7 @@ function displayFTWeather () {
         //clear sections of any existing divs
         weatherCard.empty();
         weatherForecastID.empty();
+        setWIconImage ();
 
         // set variable to return number value of response length
         // var responseLength = response.data.length;
@@ -201,15 +209,14 @@ function displayFTWeather () {
                 var wfHumidity = response.data[i].rh;
                 var wfUV = Math.ceil(response.data[i].uv);
                 var wfDescription = response.data[i].weather.description;
-                var wfweatherIcon = response.data[i].weather.icon;
-
-                // var weatherIcon = https://www.weatherbit.io/static/img/icons/{icon_code}.png
-
+                // var wWindSpeed = response.data[i].wind_spd;
+                var wfIcon = response.data[i].weather.icon;
+                weatherIcon = wfIcon;
 
                 // create divs and append to card in index file
                 
                 //define variables for creating first level div 
-                var levelCurrentDiv = $('<div id="city-temp">').addClass('level is-mobile');
+                var levelCurrentDiv = $('<div id="city-temp">').addClass('level is-mobile is-marginless');
 
                 //define variables that will be appended to the first level div
                 var wfcityNameDiv = $('<span id=city-name>').text(wfcityName).addClass('is-size-3 level-left');
@@ -222,20 +229,20 @@ function displayFTWeather () {
                 //define variables that will be appended to the second level div
                 var wfDescriptionDiv = $('<div id=description>').text(wfDescription).addClass('level-left');
 
-                var wftempIcon = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wfweatherIcon + ".png").addClass('level-right');
+                var wftempIcon = $('<img width=60px height=60px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wfIcon + ".png").addClass('level-right');
 
                 //define remaining weather variables and divs to be created
-                var wftempLowDiv = $('<div id=temp-low>').text("Low:  " + wftempLow + " ").addClass('level-left');
-                var wftempHighDiv = $('<div id=temp-high>').text("High: " + wftempHigh).addClass('level-right');
+                var wftempLowDiv = $('<span id=temp-low>').text("Low:  " + wftempLow + " " + "");
+                var wftempHighDiv = $('<span id=temp-high>').text(" " + " High: " + wftempHigh);
                 var wfUVDiv = $('<div id=uv>').text("UV Index: " + wfUV);
                 var wfHumidityDiv = $('<div id=humidity>').text("Humidity: " + wfHumidity + "%");
+                // var wfWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
 
                 //append weather details and divs to weather card
-                weatherCard.append(levelCurrentDiv, levelDetailDiv, wftempLowDiv, wftempHighDiv, wfUVDiv, wfHumidityDiv)
-                levelCurrentDiv.append(wfcityNameDiv, wftempForecastDiv);
+                weatherCard.append(levelCurrentDiv, levelDetailDiv, wftempLowDiv, wftempHighDiv, wfUVDiv, wfHumidityDiv);
 
-                //will likely remove this and fix spacing on card
-                levelDetailDiv.append(wfDescriptionDiv, wftempIcon);
+                levelCurrentDiv.append(wfcityNameDiv, wftempIcon);
+                levelDetailDiv.append(wftempForecastDiv, wfDescriptionDiv);
                                             
                 //console log results
                 // console.log('The temp will be: ' + wftemp);
@@ -262,6 +269,7 @@ function displayFTWeather () {
 
             //run projected forecast function to add future weather details to card
             addProjectedFT ();
+            
 
         // end else statement
         }
@@ -306,8 +314,8 @@ function addProjectedFT () {
                     var wpfTempHigh = Math.ceil(response.data[i].high_temp);
                     var wpfIcon = response.data[i].weather.icon
 
-                    var longDateDiv = $('<div>').text(longDateStr);
-                    var wpfTempLowDiv = $('<div>').text("L: " + wpfTempLow + String.fromCharCode(176));
+                    var longDateDiv = $('<div>').text(longDateStr).addClass('has-text-grey-darker');
+                    var wpfTempLowDiv = $('<div>').text("L: " + wpfTempLow + String.fromCharCode(176)).addClass('has-text-grey');
                     var wpfTempHighDiv = $('<div>').text("H: " + wpfTempHigh + String.fromCharCode(176));
                     var wpfTempIcons = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wpfIcon + ".png");
 
@@ -315,7 +323,7 @@ function addProjectedFT () {
                     var levelProjFT = $('<div id="projected">').addClass('level is-mobile is-marginless');
 
                     weatherForecastID.append(levelProjFT);
-                    levelProjFT.append(longDateDiv, wpfTempIcons, wpfTempLowDiv, wpfTempHighDiv);
+                    levelProjFT.append(longDateDiv, wpfTempIcons, wpfTempHighDiv, wpfTempLowDiv);
 
                 // end if statement
                 } 
@@ -334,7 +342,31 @@ function addProjectedFT () {
 
 // ** WEATHER ICON IMAGES ** //
 
+//generate photo background for card based on weather icon
 function setWIconImage () {
+
+    console.log(weatherIcon);
+
+    //if thunderstorm, drizzle, show, or unknown
+    if (weatherIcon.startsWith('t') || weatherIcon.startsWith('d') || weatherIcon.startsWith('r') || weatherIcon.startsWith('u')) {
+        weatherImage = $('#weather-image').attr('src', 'images/wrain.jpg');
+    }
+
+    //if snow
+    if (weatherIcon.startsWith('s')) {
+        weatherImage = $('#weather-image').attr('src', 'images/wsnow.jpg');
+    }
+
+    //if fog
+    if (weatherIcon.startsWith('a')) {
+        weatherImage = $('#weather-image').attr('src', 'images/wfog2');
+    }
+
+    //if clear or clouds
+    if (weatherIcon.startsWith('c')) {
+        weatherImage = $('#weather-image').attr('src', 'images/wclouds.jpg');
+    }
+
 
 
 }
