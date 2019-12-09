@@ -26,7 +26,7 @@ var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 var currentDateMD = moment().format('MMMM D');
 
 //set variable that captures weather image div and applies 
-var weatherImage = $('#weather-image').attr('src', 'images/wrain.jpg');
+var weatherImage = $('#weather-image').attr('src', 'images/weather/wrain.jpg');
 
 //define weather element to which current weather will be added
 var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
@@ -94,6 +94,7 @@ function displayCTWeather () {
         //clear sections of any existing divs
         weatherCard.empty();
         weatherForecastID.empty();
+        weatherIcon = "";
 
         var wCityName = response.data[0].city_name;
 
@@ -180,14 +181,17 @@ function displayFTWeather () {
         //clear sections of any existing divs
         weatherCard.empty();
         weatherForecastID.empty();
-        setWIconImage ();
+
+        weatherIcon = "";
+
+        //define variable that will update to yes if date entered by user falls within forecast dates provided by forecast response
+        var result = "";
+        
 
         // set variable to return number value of response length
         // var responseLength = response.data.length;
         // console.log('This is the response length: ' + responseLength);
 
-        //define variable that will update to yes if date entered by user falls within forecast dates provided by forecast response
-        var result = "";
 
         // run for loop that checks that the date user entered is within the scope of the returned forecast information from the response object
         for (var i = 0; i < response.data.length; i++) {
@@ -219,7 +223,7 @@ function displayFTWeather () {
                 var levelCurrentDiv = $('<div id="city-temp">').addClass('level is-mobile is-marginless');
 
                 //define variables that will be appended to the first level div
-                var wfcityNameDiv = $('<span id=city-name>').text(wfcityName).addClass('is-size-3 level-left');
+                var wfcityNameDiv = $('<span id=city-name>').text(wfcityName.charAt(0).toUpperCase() + wfcityName.substr(1).toLowerCase()).addClass('is-size-3 level-left');
 
                 var wftempForecastDiv = $('<div id=temp-forecast>').addClass('is-size-3 level-right').text(wftemp + String.fromCharCode(176));
 
@@ -273,6 +277,9 @@ function displayFTWeather () {
 
         // end else statement
         }
+
+        //run function to update image paired with weather icon
+        setWIconImage ();
 
     // end ajax call
     });
@@ -349,22 +356,22 @@ function setWIconImage () {
 
     //if thunderstorm, drizzle, show, or unknown
     if (weatherIcon.startsWith('t') || weatherIcon.startsWith('d') || weatherIcon.startsWith('r') || weatherIcon.startsWith('u')) {
-        weatherImage = $('#weather-image').attr('src', 'images/wrain.jpg');
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wrain.jpg');
     }
 
     //if snow
     if (weatherIcon.startsWith('s')) {
-        weatherImage = $('#weather-image').attr('src', 'images/wsnow.jpg');
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wsnow3.jpg');
     }
 
     //if fog
     if (weatherIcon.startsWith('a')) {
-        weatherImage = $('#weather-image').attr('src', 'images/wfog2');
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wfog2');
     }
 
     //if clear or clouds
     if (weatherIcon.startsWith('c')) {
-        weatherImage = $('#weather-image').attr('src', 'images/wclouds.jpg');
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wclouds.jpg');
     }
 
 
