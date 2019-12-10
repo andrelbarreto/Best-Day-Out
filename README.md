@@ -9,51 +9,36 @@ This application will assist users with planning a day out by generating options
 
 # Setup
 
-#. 1 Once logged in with [GitHub account](https://github.login/), clone the repo locally:
+Once logged in with [GitHub account](https://github.login/), clone the repo locally:
 
 ```sh
   git clone https://github.com/your_username_/Project-Name.git
 ```
-  Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
 
-#. Sign up for API keys with:
+Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
 
-  • [Ticketmaster](https://developer.ticketmaster.com/)
-
-  • [Weatherbit.io](https://www.weatherbit.io/)
-
-..• [Zomato](https://developers.zomato.com/api)
-
-
-3) Enter API keys into:
-
-  *• ticketmaster.js
-
-  *• weather-api.js
-
-  *• zomato.js **
 
 
 # Technologies
 
 This project was built using:
 
-• [Bulma 0.8.0](https://bulma.io/)
+  • [Bulma 0.8.0](https://bulma.io/)
 
-• [Font Awesome 5.3.1](https://fontawesome.com/) **
+  • [Font Awesome 5.3.1](https://fontawesome.com/) **
 
-• [jQuery 3.4.1](https://jquery.com/)
+  • [jQuery 3.4.1](https://jquery.com/)
 
-• [Moment.js 2.24.0](https://momentjs.com/)
+  • [Moment.js 2.24.0](https://momentjs.com/)
 
 
-# APIs
+  APIs
 
-• [Ticketmaster](https://developer.ticketmaster.com/) with Event Discovery Widget 
+  • [Ticketmaster](https://developer.ticketmaster.com/) with Event Discovery Widget 
 
-• [Zomato](https://developers.zomato.com/api)
+  • [Zomato](https://developers.zomato.com/api)
 
-• [Weatherbit.io](https://www.weatherbit.io/)
+  • [Weatherbit.io](https://www.weatherbit.io/)
 
 
 # Authors 
