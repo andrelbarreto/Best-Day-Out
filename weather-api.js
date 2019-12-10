@@ -213,7 +213,7 @@ function displayFTWeather () {
                 var wfHumidity = response.data[i].rh;
                 var wfUV = Math.ceil(response.data[i].uv);
                 var wfDescription = response.data[i].weather.description;
-                // var wWindSpeed = response.data[i].wind_spd;
+                var wfWindSpeed = response.data[i].wind_spd;
                 var wfIcon = response.data[i].weather.icon;
                 weatherIcon = wfIcon;
 
