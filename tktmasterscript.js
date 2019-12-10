@@ -3,7 +3,7 @@ var page = 0;
 var searchButton = $(".button");
 var cityI= "Chicago";
 var stateI = "IL";
-var dateI = "";
+var dateI = "12/12/2019";
 var categoryI= "Family";
 var APIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
 
@@ -15,17 +15,17 @@ searchButton.on("click", selectQuery);
 function selectQuery() {
    
   // captures the city, state and date variables to values entered by the user
+  categoryI = $('#category').val();
   cityI = $('#City').val();
   stateI = $('#state').val(); 
-  categoryI = $('#category').val();
   dateI = $('#date').val();
   
 
   // console log result of user entry
+  console.log("Category is" + categoryI);
   console.log(' Date entered: ' + dateI);
   console.log(' City entered: ' + cityI);
   console.log(' State entered: ' + stateI);
-  console.log("Category is" + categoryI);
 
 }
 // end select query
@@ -50,12 +50,13 @@ function getEvents(page) {
   //json created using GET and parameters with variable values given by user
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+APIKey+"&city"+cityI+"&countryCode=US"+"&state"+stateI+"&classificationName="+categoryI+"&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+APIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&classificationName="+categoryI+"&size=4&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
           getEvents.json = json;
-  			  showEvents(json);
+          showEvents(json);
+          console.log(json);
   		   },
     error: function(xhr, status, err) {
   			  console.log(err);
