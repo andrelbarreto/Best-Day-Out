@@ -23,7 +23,7 @@ Also see: [Cloning a respository](https://help.github.com/en/github/creating-clo
 
 This application allows users to plan their perfect day out by aggregating a combination of event options, dining options, and weather conditions in one location, making decisions about what to do and where to go easier and more stress-free without having to query multiple sites for the same information. 
 
-For example, if a user traveling on business wants to go out and enjoy some music for her last night in town, she can use the application to find a local show and grab a bite nearby with the knowledge that the rain won't start until the following day. At the same time, a local user entertaining family who have dropped in for the weekend can use the application to quickly find a family friendly event.
+For example, if a user traveling on business wants to go out and enjoy some music for her last night in town, she can use the application to find a local show and grab a bite nearby with the knowledge that the rain won't start until the following day. At the same time, a local user entertaining family who have dropped in for the weekend can use the application to quickly find and propose an outing to the local eatery that includes a family friendly event.
 
 A user will be able to search their event by type (music, sports, theatre, deals or family-oriented), by a specific date, and city of their choice. When the search button is clicked, the Ticketmaster, Zomato and Weatherbit apis will display events, pull data to display restaurants close to the venue, and update weather conditions as an additional help in planning users’ best day out.
 

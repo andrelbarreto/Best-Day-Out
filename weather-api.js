@@ -107,8 +107,9 @@ function displayCTWeather () {
         var wUV = Math.ceil(response.data[0].uv);
         var wHumidity = response.data[0].rh;
         var wDescription = response.data[0].weather.description;
-        // var wWindSpeed = response.data[0].wind_spd;
+        var wWindSpeed = response.data[0].wind_spd;
         var wIcon = response.data[0].weather.icon;
+        //update weather icon for set Icon function
         weatherIcon = wIcon;
         
 
@@ -135,10 +136,10 @@ function displayCTWeather () {
          + wTempFeels);
         var wUVDiv = $('<div id=uv>').text("UV Index: " + wUV);
         var wHumidityDiv = $('<div id=humidity>').text("Humidity: " + wHumidity + "%");
-        // var wWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
+        var wWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
         
         //append weather details and divs to weather card
-        weatherCard.append(levelCurrentDiv, levelDetailDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv);
+        weatherCard.append(levelCurrentDiv, levelDetailDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv, wWindSpeedDiv);
 
         levelCurrentDiv.append(wcityNameDiv, wtempIcon);
         levelDetailDiv.append(wtempCurrentDiv, wDescriptionDiv);
@@ -239,10 +240,10 @@ function displayFTWeather () {
                 var wftempHighDiv = $('<span id=temp-high>').text(" " + " High: " + wftempHigh + String.fromCharCode(176));
                 var wfUVDiv = $('<div id=uv>').text("UV Index: " + wfUV);
                 var wfHumidityDiv = $('<div id=humidity>').text("Humidity: " + wfHumidity + "%");
-                // var wfWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
+                var wfWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wfWindSpeed + "mph");
 
                 //append weather details and divs to weather card
-                weatherCard.append(levelCurrentDiv, levelDetailDiv, wftempLowDiv, wftempHighDiv, wfUVDiv, wfHumidityDiv);
+                weatherCard.append(levelCurrentDiv, levelDetailDiv, wftempLowDiv, wftempHighDiv, wfUVDiv, wfHumidityDiv, wfWindSpeedDiv);
 
                 levelCurrentDiv.append(wfcityNameDiv, wftempIcon);
                 levelDetailDiv.append(wftempForecastDiv, wfDescriptionDiv);
