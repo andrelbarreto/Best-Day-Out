@@ -9,20 +9,20 @@ This application will assist users with planning a day out by generating options
 
 # Setup
 
-1) Once logged in with [GitHub account](https://github.login/), clone the repo locally:
+#. 1 Once logged in with [GitHub account](https://github.login/), clone the repo locally:
 
 ```sh
-  *git clone https://github.com/your_username_/Project-Name.git
+  git clone https://github.com/your_username_/Project-Name.git
 ```
-  *Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
+  Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
 
-2) Sign up for API keys with:
+#. Sign up for API keys with:
 
-  *• [Ticketmaster](https://developer.ticketmaster.com/)
+  • [Ticketmaster](https://developer.ticketmaster.com/)
 
-  *• [Weatherbit.io](https://www.weatherbit.io/)
+  • [Weatherbit.io](https://www.weatherbit.io/)
 
-  *• [Zomato](https://developers.zomato.com/api)
+..• [Zomato](https://developers.zomato.com/api)
 
 
 3) Enter API keys into:
