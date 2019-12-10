@@ -12,26 +12,26 @@ This application will assist users with planning a day out by generating options
 1) Once logged in with [GitHub account](https://github.login/), clone the repo locally:
 
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+  *git clone https://github.com/your_username_/Project-Name.git
 ```
-  Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
+  *Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
 
 2) Sign up for API keys with:
 
-• [Ticketmaster](https://developer.ticketmaster.com/)
+  *• [Ticketmaster](https://developer.ticketmaster.com/)
 
-• [Weatherbit.io](https://www.weatherbit.io/)
+  *• [Weatherbit.io](https://www.weatherbit.io/)
 
-• [Zomato](https://developers.zomato.com/api)
+  *• [Zomato](https://developers.zomato.com/api)
 
 
 3) Enter API keys into:
 
-• ticketmaster.js
+  *• ticketmaster.js
 
-• weather-api.js
+  *• weather-api.js
 
-• zomato.js **
+  *• zomato.js **
 
 
 # Technologies
@@ -49,8 +49,7 @@ This project was built using:
 
 # APIs
 
-• [Ticketmaster](https://developer.ticketmaster.com/)
-  o  Event Discovery Widget 
+• [Ticketmaster](https://developer.ticketmaster.com/) with Event Discovery Widget 
 
 • [Zomato](https://developers.zomato.com/api)
 
@@ -59,11 +58,15 @@ This project was built using:
 
 # Authors 
 
-Andre Barreto • Events • Ticketmaster API
-Brieanne Howard • Restaurants • Zomato API
-Jacob Rosenberg • CSS • Bulma
-Marysia Galent • HTML & CSS • Bulma
-Sarah Dillard • Weather • Weatherbit.io API
+• Andre Barreto • Events • Ticketmaster API
+
+• Brieanne Howard • Restaurants • Zomato API
+
+• Jacob Rosenberg • CSS • Bulma
+
+• Marysia Galent • HTML & CSS • Bulma
+
+• Sarah Dillard • Weather • Weatherbit.io API
     
 
 # Acknowledgements
@@ -88,5 +91,7 @@ https://github.com/dbader/readme-template
 https://github.com/ritaly/README-cheatsheet
 https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
 https://github.com/zalando/zalando-howto-open-source/blob/master/READMEtemplate.md#readme
+
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 
