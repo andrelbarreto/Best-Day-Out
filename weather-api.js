@@ -145,8 +145,7 @@ function displayCTWeather () {
 
         //run projected forecast function to add future weather details to card
         addProjectedFT ();
-        setWIconImage ();
-        
+        setWIconImage (); 
         
        // console log results
     //    console.log('This is the current temp: ' + wTempNow);
@@ -154,7 +153,6 @@ function displayCTWeather () {
     //    console.log('This is the UV Index: ' + wUV);
     //    console.log('The humidity is: ' + wHumidity);
     //    console.log('The weather is: ' + wDescription);
-
 
     //end ajax call
     });
@@ -224,7 +222,7 @@ function displayFTWeather () {
                 var levelCurrentDiv = $('<div id="city-temp">').addClass('level is-mobile is-marginless');
 
                 //define variables that will be appended to the first level div
-                var wfcityNameDiv = $('<span id=city-name>').text(wfcityName.charAt(0).toUpperCase() + wfcityName.substr(1).toLowerCase()).addClass('is-size-3 level-left');
+                var wfcityNameDiv = $('<span id=city-name>').text(wfcityName).addClass('is-size-3 level-left');
 
                 var wftempForecastDiv = $('<div id=temp-forecast>').addClass('is-size-3 level-right').text(wftemp + String.fromCharCode(176));
 
@@ -237,8 +235,8 @@ function displayFTWeather () {
                 var wftempIcon = $('<img width=60px height=60px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wfIcon + ".png").addClass('level-right');
 
                 //define remaining weather variables and divs to be created
-                var wftempLowDiv = $('<span id=temp-low>').text("Low:  " + wftempLow + " " + "");
-                var wftempHighDiv = $('<span id=temp-high>').text(" " + " High: " + wftempHigh);
+                var wftempLowDiv = $('<span id=temp-low>').text("Low:  " + wftempLow + " " + String.fromCharCode(176) + " " + "-");
+                var wftempHighDiv = $('<span id=temp-high>').text(" " + " High: " + wftempHigh + String.fromCharCode(176));
                 var wfUVDiv = $('<div id=uv>').text("UV Index: " + wfUV);
                 var wfHumidityDiv = $('<div id=humidity>').text("Humidity: " + wfHumidity + "%");
                 // var wfWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
@@ -275,7 +273,6 @@ function displayFTWeather () {
             //run projected forecast function to add future weather details to card
             addProjectedFT ();
             
-
         // end else statement
         }
 
@@ -306,23 +303,29 @@ function addProjectedFT () {
         //create for loop for adding projected forecast section to card
         for (var j = 1; j < 6; j++) {
             
-            var longDateStr = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('MMMM D');
+            //set var for Month Date
+            var longDate = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('MMMM D');
+
+            //set var for dateInput + 1 day to represent forecast dates to pull back
             var updatedDate = moment(dateInput, 'YYYY-MM-DD').add(+j, 'days').format('YYYY-MM-DD');
-            // console.log("This is the long date: " + longDateStr);
+            // console.log("This is the long date: " + longDate);
             // console.log("This is the updated date: " + updatedDate);
             
+            //run through the full list of data from the response
             for (var i = 0; i < response.data.length; i++) {
                     // console.log("This is the updated date: " + updatedDate);
                     // console.log("This is the response date searched: " + response.data[i].valid_date);
 
-                    
+                //if the updated date input matches a date in the response data, create forecast divs
                 if (updatedDate === response.data[i].valid_date) {
 
+                    //create variables
                     var wpfTempLow = Math.ceil(response.data[i].low_temp);
                     var wpfTempHigh = Math.ceil(response.data[i].high_temp);
                     var wpfIcon = response.data[i].weather.icon
 
-                    var longDateDiv = $('<div>').text(longDateStr).addClass('has-text-grey-darker');
+                    //create divs
+                    var longDateDiv = $('<div>').text(longDate).addClass('has-text-grey-darker');
                     var wpfTempLowDiv = $('<div>').text("L: " + wpfTempLow + String.fromCharCode(176)).addClass('has-text-grey');
                     var wpfTempHighDiv = $('<div>').text("H: " + wpfTempHigh + String.fromCharCode(176));
                     var wpfTempIcons = $('<img width=40px height=40px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wpfIcon + ".png");
@@ -334,8 +337,8 @@ function addProjectedFT () {
                     levelProjFT.append(longDateDiv, wpfTempIcons, wpfTempHighDiv, wpfTempLowDiv);
 
                 // end if statement
-                } 
-
+                }
+                 
             // end internal for loop
             }
 
@@ -348,35 +351,28 @@ function addProjectedFT () {
 // close projectedFT function
 }
 
-// ** WEATHER ICON IMAGES ** //
 
 //generate photo background for card based on weather icon
 function setWIconImage () {
 
-    console.log(weatherIcon);
+    // console.log(weatherIcon);
 
-    //if thunderstorm, drizzle, show, or unknown
+    //if thunderstorm, drizzle, rain, or unknown precipitation
     if (weatherIcon.startsWith('t') || weatherIcon.startsWith('d') || weatherIcon.startsWith('r') || weatherIcon.startsWith('u')) {
         weatherImage = $('#weather-image').attr('src', 'images/weather/wrain.jpg');
     }
 
-    //if snow
-    if (weatherIcon.startsWith('s')) {
-        weatherImage = $('#weather-image').attr('src', 'images/weather/wsnow3.jpg');
-    }
-
-    //if fog
-    if (weatherIcon.startsWith('a')) {
-        weatherImage = $('#weather-image').attr('src', 'images/weather/wfog2');
+    //if snow or fog
+    if (weatherIcon.startsWith('s') || weatherIcon.startsWith('a')) {
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wsnowfog.jpg');
     }
 
     //if clear or clouds
     if (weatherIcon.startsWith('c')) {
-        weatherImage = $('#weather-image').attr('src', 'images/weather/wclouds.jpg');
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wclear3.jpg');
     }
 
-
-
+// end set icon image function
 }
 
 //run the display current weather function at startup

@@ -19,7 +19,7 @@ Also see: [Cloning a respository](https://help.github.com/en/github/creating-clo
 
 
 # Usage
-*Draft note: project abstract. Why this specific project was created and what it achieves.
+*Draft note: project abstract. Why this specific project was created and what it achieves. Option: Could also explain the functionality of the code, what unique aspects of the code were created to solve the problem here or in *Technologies section.
 
 This application allows users to plan their perfect day out by aggregating a combination of event options, dining options, and weather conditions in one location, making decisions about what to do and where to go easier and more stress-free without having to query multiple sites for the same information. 
 
