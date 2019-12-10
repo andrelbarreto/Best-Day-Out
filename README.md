@@ -1,7 +1,7 @@
 # Project One: "Your Best Day Out" Event Tracker
 (draft) First Project for NU Coding Bootcamp
 
-This application will assist users with planning a day out by generating options for local events and food, as well as weather conditions. Users will initiate search by choosing an event category, city/state, and date, which returns event, restaurant and weather api data based on those parameters.
+This application will assist users with planning a day out by generating options for local events and food, as well as weather conditions by date and location. Users will initiate search by choosing an event category, city/state, and date, which returns event, restaurant and weather api data based on those parameters.
 
 
 ![event tracker screenshot](/images/readme/best-day-out.jpg)
@@ -14,45 +14,56 @@ This application will assist users with planning a day out by generating options
 ```sh
 git clone https://github.com/your_username_/Project-Name.git
 ```
-Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
+  Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
 
 2) Sign up for API keys with:
 
-   • [Ticketmaster](https://developer.ticketmaster.com/)
-   • [Weatherbit.io](https://www.weatherbit.io/)
-   • [Zomato](https://developers.zomato.com/api)
+• [Ticketmaster](https://developer.ticketmaster.com/)
+
+• [Weatherbit.io](https://www.weatherbit.io/)
+
+• [Zomato](https://developers.zomato.com/api)
+
 
 3) Enter API keys into:
-   • ticketmaster.js
-   • weather-api.js
-   • zomato.js **
+
+• ticketmaster.js
+
+• weather-api.js
+
+• zomato.js **
 
 
 # Technologies
 
 This project was built using:
 
-   • [Bulma 0.8.0](https://bulma.io/)
-   • [Font Awesome 5.3.1](https://fontawesome.com/) **
-   • [jQuery 3.4.1](https://jquery.com/)
-   • [Moment.js 2.24.0](https://momentjs.com/)
+• [Bulma 0.8.0](https://bulma.io/)
+
+• [Font Awesome 5.3.1](https://fontawesome.com/) **
+
+• [jQuery 3.4.1](https://jquery.com/)
+
+• [Moment.js 2.24.0](https://momentjs.com/)
 
 
 # APIs
 
-   • [Ticketmaster](https://developer.ticketmaster.com/)
-        o  Event Discovery Widget 
-   • [Zomato](https://developers.zomato.com/api)
-   • [Weatherbit.io](https://www.weatherbit.io/)
+• [Ticketmaster](https://developer.ticketmaster.com/)
+  o  Event Discovery Widget 
+
+• [Zomato](https://developers.zomato.com/api)
+
+• [Weatherbit.io](https://www.weatherbit.io/)
 
 
 # Authors 
 
-    • Andre Barreto • Events • Ticketmaster API
-    • Brieanne Howard • Restaurants • Zomato API
-    • Jacob Rosenberg • CSS • Bulma
-    • Marysia Galent • HTML & CSS • Bulma
-    • Sarah Dillard • Weather • Weatherbit.io API
+Andre Barreto • Events • Ticketmaster API
+Brieanne Howard • Restaurants • Zomato API
+Jacob Rosenberg • CSS • Bulma
+Marysia Galent • HTML & CSS • Bulma
+Sarah Dillard • Weather • Weatherbit.io API
     
 
 # Acknowledgements
