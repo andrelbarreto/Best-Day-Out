@@ -1,5 +1,5 @@
 # Project One: "Your Best Day Out" Event Tracker
-(draft) First Project for NU Coding Bootcamp
+*(draft)* First Project for NU Coding Bootcamp
 
 This application will assist users with planning a day out by generating options for local events and food, as well as weather conditions by date and location. Users will initiate search by choosing an event category, city/state, and date, which returns event, restaurant and weather api data based on those parameters.
 
@@ -9,13 +9,23 @@ This application will assist users with planning a day out by generating options
 
 # Setup
 
-Once logged in with [GitHub account](https://github.login/), clone the repo locally:
+Once logged in with [GitHub account](https://github.login/), clone the repo locally using link:
 
 ```sh
-  git clone https://github.com/your_username_/Project-Name.git
+  git clone https://github.com/andrelbarreto/ProjectOne.git
 ```
 
-Also see [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) on GitHub.
+Also see: [Cloning a respository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+
+# Usage
+*Draft note: project abstract. Why this specific project was created and what it achieves.
+
+This application allows users to plan their perfect day out by aggregating a combination of event options, dining options, and weather conditions in one location, making decisions about what to do and where to go easier and more stress-free without having to query multiple sites for the same information. 
+
+For example, if a user traveling on business wants to go out and enjoy some music for her last night in town, she can use the application to find a local show and grab a bite nearby with the knowledge that the rain won't start until the following day. At the same time, a local user entertaining family who have dropped in for the weekend can use the application to quickly find a family friendly event.
+
+A user will be able to search their event by type (music, sports, theatre, deals or family-oriented), by a specific date, and city of their choice. When the search button is clicked, the Ticketmaster, Zomato and Weatherbit apis will display events, pull data to display restaurants close to the venue, and update weather conditions as an additional help in planning users’ best day out.
 
 
 
@@ -23,48 +33,46 @@ Also see [Cloning a respository](https://help.github.com/en/github/creating-clon
 
 This project was built using:
 
-  • [Bulma 0.8.0](https://bulma.io/)
+  - [Bulma 0.8.0](https://bulma.io/)
 
-  • [Font Awesome 5.3.1](https://fontawesome.com/) **
+  - [Font Awesome 5.3.1](https://fontawesome.com/) **
 
-  • [jQuery 3.4.1](https://jquery.com/)
+  - [jQuery 3.4.1](https://jquery.com/)
 
-  • [Moment.js 2.24.0](https://momentjs.com/)
+  - [Moment.js 2.24.0](https://momentjs.com/)
 
 
-  APIs
+APIs
 
-  • [Ticketmaster](https://developer.ticketmaster.com/) with Event Discovery Widget 
+  - [Ticketmaster](https://developer.ticketmaster.com/) with Event Discovery Widget 
 
-  • [Zomato](https://developers.zomato.com/api)
+  - [Zomato](https://developers.zomato.com/api)
 
-  • [Weatherbit.io](https://www.weatherbit.io/)
+  - [Weatherbit.io](https://www.weatherbit.io/)
 
 
 # Authors 
 
-• Andre Barreto • Events • Ticketmaster API
+- Andre Barreto • Events • Ticketmaster API
 
-• Brieanne Howard • Restaurants • Zomato API
+- Brieanne Howard • Restaurants • Zomato API
 
-• Jacob Rosenberg • CSS • Bulma
+- Jacob Rosenberg • CSS • Bulma
 
-• Marysia Galent • HTML & CSS • Bulma
+- Marysia Galent • HTML & CSS • Bulma
 
-• Sarah Dillard • Weather • Weatherbit.io API
+- Sarah Dillard • Weather • Weatherbit API
     
 
+
 # Acknowledgements
-*Placeholder *Did you use someone else’s code? Do you want to thank someone explicitly? Did someone’s blog post spark off a wonderful idea or give you a solution to nagging problem? Provide a shoutout and a link in your README. And referencing external code also helps users track down the original source for use in their own projects.
+*Draft note: *Did you use someone else’s code? Do you want to thank someone explicitly? Did someone’s blog post spark off a wonderful idea or give you a solution to nagging problem? Provide a shoutout and a link in your README. And referencing external code also helps users track down the original source for use in their own projects.
 
 
 # License
 
 This project uses the MIT License. See the full details here: https://choosealicense.com/licenses/mit/ 
 
-
-# Questions
-    • Does Usage need to be included?
 
 
 # Some Readme Resources

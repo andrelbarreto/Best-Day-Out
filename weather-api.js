@@ -1,10 +1,11 @@
 // version 1: Weather API
 // Goal: when search button is clicked, run functions that will:
 // 1: check user input date against current date and select current weather query or forecast query
-// 2: use information entered by user to query Weatherbit.io
+// 2: use information entered by user to query Weatherbit.io for current and future weather conditions
+//
 
 
-// **INITIAL VARIABLES** //
+// **GLOBAL VARIABLES** //
 
 // define variable for html search button
 var searchButton = $(".button");
