@@ -243,78 +243,46 @@
             <h2 class="title is-size-4">Find your event -- Plan dining out -- See weather forecast</h2>
             <h2 class="subtitle is-size-4 is-italic">Plan your Best Day Out - all planning in one place!</h2>
             
+          <div class="row is-centered" style="padding: 2rem"></div>
+
             <div class="columns is-centered" style="padding: 2rem"> <!--3 cards with img and text-->
                 
-                <!-- widget for ticketmaster !-->
-
-                <div class="container">
-                    <div class="row">
-                      <div class="col-xs-6">
-                      <div id='events-panel' class="panel is-link">
-                        <div class="panel-heading">
-                          <h3 class="panel-title">Events</h3>
-                        </div>
-                        <div class="panel-body">
-                          <div id="events" class="list-group">
-                            <a href="#" class="list-group-item">
-                              <h4 class="list-group-item-heading">Event title</h4>
-                              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                              <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                              <h4 class="list-group-item-heading">Event title</h4>
-                              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                              <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                              <h4 class="list-group-item-heading">Event title</h4>
-                              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                              <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                              <h4 class="list-group-item-heading">Event title</h4>
-                              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                              <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                              <h4 class="list-group-item-heading">Event title</h4>
-                              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                              <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                              <h4 class="list-group-item-heading">Event title</h4>
-                              <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                              <p class="venue"></p>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="panel-footer">
-                          <nav>
-                            <ul class="pager">
-                              <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
-                              <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
-                            </ul>
-                          </nav>
-                        </div>
-                      </div>
-                      
-                      <div id='attraction-panel' class="panel panel-primary">
-                        <div class="panel-heading">
-                          <h3 class="panel-title">Attraction</h3>
-                        </div>
-                        <div id="attraction" class="panel-body">
-                          <h4 class="list-group-item-heading">Attraction title</h4>
-                          <img class="col-xs-12" src="">
-                          <p id="classification"></p>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-
+                
+                  <!-- Widget for Ticketmaster - Visual panels that allow costumer to click through, and once they click on one a tab with ticketmaster website selling tickets for event appears -->
 
                 <div id="Ticketmaster-widget"
-                w-type="event-discovery" w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="450" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Chicago" w-period="week" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_79seb" w-countrycode="US" w-source="" w-branding="Ticketmaster" w-showfulleventsnames="true" w-latlong=""></div>
+                w-type="event-discovery" 
+                w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" 
+                w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA"
+                w-keyword="" 
+                w-theme="simple" 
+                w-colorscheme="light" 
+                w-width="650" 
+                w-height="800" 
+                w-size="25" 
+                w-border="0" 
+                w-borderradius="4" 
+                w-postalcode="" 
+                w-radius="25" 
+                w-city="Chicago" 
+                w-period="week" 
+                w-layout="vertical" 
+                w-attractionid="" 
+                w-promoterid="" 
+                w-venueid="" 
+                w-affiliateid="" w-segmentid="" 
+                w-proportion="custom" 
+                w-titlelink="off" 
+                w-sorting="groupByName" 
+                w-id="id_79seb" 
+                w-countrycode="US" 
+                w-source="" 
+                w-branding="Ticketmaster" 
+                w-showfulleventsnames="true" 
+                w-latlong=""></div>
+
+                <!-- Wiget above uses API keys for ticketmaster and Google to provide information based in city, with frame before any choices entered showing events in Chicago
+                  & 25 miles radius starting that day and for the week -->
                
                
                 <!--Family Event
@@ -415,7 +383,106 @@
           <!-- end column -->
           </div>
            
-            </div> <!--end of cards-->
+        </div> <!--end of cards-->
+
+        <div class="row is-centered" style="padding: 2rem"></div> 
+
+          <div class="columns is-centered" style="padding: 2rem"> <!--2 cards with img and text-->
+
+            <!-- Event Listings for ticketmaster !-->
+
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-6">
+                <div id='events-panel' class="panel is-link">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Events</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div id="events" class="list-group">
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <nav>
+                      <ul class="pager">
+                        <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
+                        <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+                
+                <div id='attraction-panel' class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Attraction</h3>
+                  </div>
+                  <div id="attraction" class="panel-body">
+                    <h4 class="list-group-item-heading">Attraction title</h4>
+                    <img class="col-xs-12" src="">
+                    <p id="classification"></p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            
+             <!--Restaurant -->
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-2by1">
+                                <img src="images/photo-1466978913421-dad2ebd01d17.jpg" alt="Dining Out">
+                            </figure>
+                        </div> 
+
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">Dining Together</p>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                Some Text
+                            </div>
+                        </div>
+                    </div>
+                    <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
+                    
+                </div> <!--end of column/Restaurant-->
+                
+          </div> <!-- End of columns for second row-->
+        </div> <!-- End of second row-->
 
         </div> <!--end of container-->
     </section> <!--end of section for some text/cards-->
