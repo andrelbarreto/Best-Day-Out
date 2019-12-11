@@ -155,13 +155,14 @@
                 </div> end of Category dropdown -->
 
                 <!--location-->
-                <div class="column is-two-fifths">
+                <div class="column is-2 is-offset-4">
                     <input class="input" id="City" type="text" placeholder="City">
                 </div>
 
                 <!-- List of US states -->
-                <div class="select">
-                <select name="state" id="state">
+                <div class="column is-2">
+                    <div class="select">
+                        <select name="state" id="state">
                         <option value="Select a State">Select a State</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -214,16 +215,17 @@
                         <option value="WV">West Virginia</option>
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
-                </select>  
+                        </select>  
+                    </div>
                 </div><!-- end of US states-->
 
-                <!--date picker-->
-                <div class="column is-two-fifths">
-                    <input type="date" id="date">
-                    
-                </div>
-
             </div> <!--end of container for search options-->
+
+            <!--date picker-->
+            <div class="column">
+                <input type="date" id="date">
+                
+            </div>
 
             <button class="button is-primary">Search</button>
 
