@@ -360,7 +360,11 @@ function addProjectedFT () {
 //generate photo background for card based on weather icon
 function setWIconImage () {
 
-    // console.log(weatherIcon);
+    console.log(weatherIcon);
+    console.log(dateInput == currentDate);
+    console.log(cityInput == "Chicago")
+    console.log(currentHour > 17)
+    console.log(currentHour)
 
     //if thunderstorm
     if (weatherIcon.startsWith('t')) {
@@ -399,7 +403,8 @@ function setWIconImage () {
         }
 
          //if it's today and it's the evening, display an evening variable
-         if (dateInput == currentDate && currentHour > 17) {
+         if (dateInput == currentDate && currentHour >= 17) {
+             
 
             weatherImage = $('#weather-image').attr('src', 'images/weather/wnight2.jpg');
             
