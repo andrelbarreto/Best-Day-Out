@@ -1,6 +1,6 @@
 var page = 0;
 //gets a copy of original HTML because Ticketmaster widget overwrites it
-var ticketMatsterWidgetTemplate = $(document.getElementById('Ticketmaster-widget').outerHTML);
+var ticketMatsterWidgetTemplate = document.getElementById('Ticketmaster-widget').outerHTML;
 // define variables for search button that captures the city, state, date and category indicated by user, by default are chosen to show first card
 var searchButton = $(".button");
 var cityI= "Chicago";
@@ -143,8 +143,8 @@ function reloadTicketmasterWidget() {
     // reset the widget
     $('#Ticketmaster-widget').fadeOut(400, function() {
         // creates a new template, sets id and city
-        var newTemplate = ticketMatsterWidgetTemplate;
-        newTemplate.attr('w-city',cityI);
+        var newTemplate = $(ticketMatsterWidgetTemplate);
+        newTemplate.attr('w-city', cityI);
         // writes new html over the existing widget
         $('#Ticketmaster-widget').html(newTemplate);
         // this will run the script from ticketmaster that converts our html
