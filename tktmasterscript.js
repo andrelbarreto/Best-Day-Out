@@ -5,10 +5,14 @@ var cityI= "Chicago";
 var stateI = "IL";
 var dateI = "12/12/2019";
 var categoryI= "Family";
-var APIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
+var TktAPIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
 
 //create on click event trigged by main Search button that will check user inputs and initiate queries
-searchButton.on("click", selectQuery);
+searchButton.on("click", function() {
+  selectQuery();
+  getEvents(page);
+});
+
 
 
 // check user input date and capture variables
@@ -50,7 +54,7 @@ function getEvents(page) {
   //json created using GET and parameters with variable values given by user
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+APIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&classificationName="+categoryI+"&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&classificationName="+categoryI+"&size=4&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
@@ -67,6 +71,7 @@ function getEvents(page) {
 
 //function to parse date to show each event
 function showEvents(json) {
+  // alert('showEvetnts')
   var items = $('#events .list-group-item');
   items.hide();
   var events = json._embedded.events;
@@ -104,7 +109,7 @@ $('#next').click(function() {
 function getAttraction(id) {
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey="+APIKey,
+    url:"https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey="+TktAPIKey,
     async:true,
     dataType: "json",
     success: function(json) {
