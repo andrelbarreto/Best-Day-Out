@@ -6,7 +6,8 @@ var searchButton = $(".button");
 var cityI= "Chicago";
 var stateI = "IL";
 var dateI = "12/12/2019";
-var categoryI= "Family";
+var categoryI= "";
+var Family="yes";
 var TktAPIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
 
 //create on click event trigged by main Search button that will check user inputs and initiate queries
@@ -57,7 +58,7 @@ function getEvents(page) {
   //json created using GET and parameters with variable values given by user
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&classificationName="+categoryI+"&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&includeFamily="+Family+"&classificationName="+categoryI+"&size=4&page="+page,
     async:true,
     dataType: "json",
     success: function(json) {
@@ -144,7 +145,7 @@ function reloadTicketmasterWidget() {
     $('#Ticketmaster-widget').fadeOut(400, function() {
         // creates a new template, sets id and city
         var newTemplate = $(ticketMatsterWidgetTemplate);
-        newTemplate.attr('w-city', cityI);
+        newTemplate.attr('w-city', cityI, 'w-state', stateI);
         // writes new html over the existing widget
         $('#Ticketmaster-widget').html(newTemplate);
         // this will run the script from ticketmaster that converts our html
