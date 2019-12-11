@@ -2,7 +2,8 @@
 // Goal: when search button is clicked, run functions that will:
 // 1: check user input date against current date and select current weather query or forecast query
 // 2: use information entered by user to query Weatherbit.io for current and future weather conditions
-//
+// 3: generate weather photos loosely based on weather conditions
+
 
 
 // **GLOBAL VARIABLES** //
@@ -12,13 +13,14 @@ var searchButton = $(".button");
 
 // define current date using a moment
 var currentDate = moment().format('YYYY-MM-DD');
+var currentHour = moment().format('HH');
 // console.log('WA: This is the current date: ' + currentDate);
 
 // define variables that capture the city, state, and date indicated by user, by default are Chicago
 var cityInput = "Chicago";
 var stateInput = "IL";
 var dateInput = currentDate
-console.log(dateInput);
+// console.log(dateInput);
 
 // define variables that represent the WeatherBit APIKey
 var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
@@ -27,7 +29,7 @@ var APIKey = "faa9f8bb779e4165b52c0af7edcdbf68";
 var currentDateMD = moment().format('MMMM D');
 
 //set variable that captures weather image div and applies 
-var weatherImage = $('#weather-image').attr('src', 'images/weather/wrain.jpg');
+var weatherImage = $('#weather-image').attr('src', 'images/weather/wfog.jpg');
 
 //define weather element to which current weather will be added
 var weatherCard = $('#weather-primary').addClass('has-text-white is-overlay has-text-weight-semibold has-text-left');
@@ -41,7 +43,7 @@ var weatherIcon = "";
 
 // **CLICK EVENT** //
 
-//create on click event trigged by main age Search button that will check user inputs and initiate queries
+//create on click event trigged by main page Search button that will check user inputs and initiate queries
 searchButton.on("click", selectQuery);
 
 
@@ -96,6 +98,7 @@ function displayCTWeather () {
         weatherCard.empty();
         weatherForecastID.empty();
         weatherIcon = "";
+        
 
         var wCityName = response.data[0].city_name;
 
@@ -109,6 +112,7 @@ function displayCTWeather () {
         var wDescription = response.data[0].weather.description;
         var wWindSpeed = response.data[0].wind_spd;
         var wIcon = response.data[0].weather.icon;
+
         //update weather icon for set Icon function
         weatherIcon = wIcon;
         
@@ -136,7 +140,7 @@ function displayCTWeather () {
          + wTempFeels);
         var wUVDiv = $('<div id=uv>').text("UV Index: " + wUV);
         var wHumidityDiv = $('<div id=humidity>').text("Humidity: " + wHumidity + "%");
-        var wWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + "mph");
+        var wWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wWindSpeed + " mph");
         
         //append weather details and divs to weather card
         weatherCard.append(levelCurrentDiv, levelDetailDiv, wtempFeelsDiv, wUVDiv, wHumidityDiv, wWindSpeedDiv);
@@ -236,11 +240,11 @@ function displayFTWeather () {
                 var wftempIcon = $('<img width=60px height=60px>').attr('src', "https://www.weatherbit.io/static/img/icons/" + wfIcon + ".png").addClass('level-right');
 
                 //define remaining weather variables and divs to be created
-                var wftempLowDiv = $('<span id=temp-low>').text("Low:  " + wftempLow + " " + String.fromCharCode(176) + " " + "-");
+                var wftempLowDiv = $('<span id=temp-low>').text("Low:  " + wftempLow + " " + String.fromCharCode(176) + " " + String.fromCharCode(8226));
                 var wftempHighDiv = $('<span id=temp-high>').text(" " + " High: " + wftempHigh + String.fromCharCode(176));
                 var wfUVDiv = $('<div id=uv>').text("UV Index: " + wfUV);
                 var wfHumidityDiv = $('<div id=humidity>').text("Humidity: " + wfHumidity + "%");
-                var wfWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wfWindSpeed + "mph");
+                var wfWindSpeedDiv = $('<div id=humidity>').text("Wind Speed: " + wfWindSpeed + " mph");
 
                 //append weather details and divs to weather card
                 weatherCard.append(levelCurrentDiv, levelDetailDiv, wftempLowDiv, wftempHighDiv, wfUVDiv, wfHumidityDiv, wfWindSpeedDiv);
@@ -358,19 +362,50 @@ function setWIconImage () {
 
     // console.log(weatherIcon);
 
-    //if thunderstorm, drizzle, rain, or unknown precipitation
-    if (weatherIcon.startsWith('t') || weatherIcon.startsWith('d') || weatherIcon.startsWith('r') || weatherIcon.startsWith('u')) {
+    //if thunderstorm
+    if (weatherIcon.startsWith('t')) {
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wthunder.jpg');
+    }
+
+    //if drizzle, rain, or unknown precipitation
+    if (weatherIcon.startsWith('f') || weatherIcon.startsWith('d') || weatherIcon.startsWith('r') || weatherIcon.startsWith('u')) {
         weatherImage = $('#weather-image').attr('src', 'images/weather/wrain.jpg');
     }
 
-    //if snow or fog
+    //if snow
     if (weatherIcon.startsWith('s') || weatherIcon.startsWith('a')) {
-        weatherImage = $('#weather-image').attr('src', 'images/weather/wsnowfog.jpg');
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wsnow.jpg');
+    }
+
+    //if fog
+    if (weatherIcon.startsWith('a')) {
+        weatherImage = $('#weather-image').attr('src', 'images/weather/wfog.jpg');
     }
 
     //if clear or clouds
-    if (weatherIcon.startsWith('c')) {
+    //if clear or clouds and the city is not Chicago, display the wclear image
+    if (weatherIcon.startsWith('c') && cityInput !== "Chicago") {
+
         weatherImage = $('#weather-image').attr('src', 'images/weather/wclear3.jpg');
+
+    //if clear or clouds and the city input is Chicago
+    } else if (weatherIcon.startsWith('c') && cityInput == "Chicago") {
+
+        //if during the day today or a future date, set generic clear photo
+        if (dateInput == currentDate && currentHour < 17 || dateInput !== currentDate) {
+
+            weatherImage = $('#weather-image').attr('src', 'images/weather/wclear3.jpg');
+
+        }
+
+         //if it's today and it's the evening, display an evening variable
+         if (dateInput == currentDate && currentHour > 17) {
+
+            weatherImage = $('#weather-image').attr('src', 'images/weather/wnight2.jpg');
+            
+        }
+
+    //end else if statement
     }
 
 // end set icon image function
