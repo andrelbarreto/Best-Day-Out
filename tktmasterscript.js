@@ -9,13 +9,15 @@ var dateI = "12/12/2019";
 var categoryI= "";
 var Family="yes";
 var TktAPIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
-var showFamily = false;
+// var showFamily = false;
 
 //create on click event trigged by main Search button that will check user inputs and initiate queries
 searchButton.on("click", function() {
- // FamilyorNot();
+  
   console.log(" Show family events state is " + Family);
   //once search button is clicked function selectQuery will change var values to those inputed
+  FamilyorNot();
+  console.log(" Show family events state is " + Family);
   selectQuery();
   // runs the function that gets json events per page from ticketmaster
   getEvents(page);
@@ -33,12 +35,12 @@ function selectQuery() {
   cityI = $('#City').val();
   stateI = $('#state').val(); 
   dateI = $('#date').val();
-  Family = $("input[name='answer']:checked").val();
+  //Family = $("input[name='answer']:checked").val();
  // Family = $("input[name='answer']:checked").attr('id')
   //showFamily = document.getElementById('showFamily').checked;
-  
+  console.log("What is the value of Family? " + Family);
   //Calls function to determine value of radio button and associate variables to show Family events or 21+
- // FamilyorNot();
+  // FamilyorNot();
   
 
   // console log result of user entry
@@ -54,6 +56,10 @@ function selectQuery() {
 
 //function that verifies which radio button has been checked and gives values to variables assigned
 //Ticketmaster has two options for family events, one is a string with yes, no or only to show Family events along with others or not at all, and only shows only Family events. other boolean when false will not show only family events
+
+
+
+
 function FamilyorNot() {
   if(document.getElementById('showFamily').checked) {
     //Family events only radio button is checked
@@ -62,11 +68,12 @@ function FamilyorNot() {
   }
   else if(document.getElementById('over21').checked) {
     //over 21 button is checked
-    showFamily = false;
-    console.log("Over 21 is checked so mark it as " + showFamily);
+    
     Family="no";
-    console.log("What is the value of Family? " + Family);
+    console.log("Over 21 is checked so mark it as " + Family);
+    
   }
+  console.log("The function FamilyorNot has run");
 }
 
 
