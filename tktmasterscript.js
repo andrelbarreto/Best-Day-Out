@@ -31,7 +31,8 @@ function selectQuery() {
   cityI = $('#City').val();
   stateI = $('#state').val(); 
   dateI = $('#date').val();
-  showFamily = document.getElementById('showFamily').checked;
+  //showFamily = document.getElementById('showFamily').checked;
+  //Calls function to determine value of radio button and associate variables to show Family events or 21+
   FamilyorNot();
   
 
@@ -40,7 +41,7 @@ function selectQuery() {
   console.log(' Date entered: ' + dateI);
   console.log(' City entered: ' + cityI);
   console.log(' State entered: ' + stateI);
-  console.log("Show family events only" + showFamily);
+  console.log("Show family events only is" + showFamily);
 
 }
 // end select query
@@ -49,10 +50,14 @@ function FamilyorNot() {
   if(document.getElementById('showFamily').checked) {
     //Family events only radio button is checked
     showFamily = true;
-  }else if(document.getElementById('over21').checked) {
+    console.log(" Only family events is checked so mark Family as " + showFamily);
+  }
+  else if(document.getElementById('over21').checked) {
     //over 21 button is checked
     showFamily = false;
+    console.log("Over 21 is checked so mark it as " + showFamily);
     Family="no";
+    console.log("What is the value of Family? " + Family);
   }
 }
 //fuction to show events list using jquery and divs for events-panel and attraction-panel
