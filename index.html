@@ -303,7 +303,7 @@
                 w-theme="simple" 
                 w-colorscheme="light" 
                 w-width="650" 
-                w-height="800" 
+                w-height="650" 
                 w-size="25" 
                 w-border="0" 
                 w-borderradius="4" 
@@ -382,9 +382,9 @@
 
         
         <!-- div for weather information -->
-        <div class="column" style="min-width:350px;">
+        <div class="column is-one-third" id="weather-column" style="min-width:350px;">
 
-            <div class="card"  id="weather">
+            <div class="card"  id="weather" style="min-height: 600px;">
   
               <!-- primary weather details will overlay this image -->
               <div class="card-image">
@@ -403,7 +403,8 @@
               </div>
               
               <div class="card-content">
-                    
+                
+                <!-- forecast weather details will pull into this div -->
                 <div class="content" id="weather-forecast">
               
                 </div>
