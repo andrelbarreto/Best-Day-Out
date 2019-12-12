@@ -136,6 +136,7 @@ function showAttraction(json) {
   $('#attraction .list-group-item-heading').first().text(json.name);
   $('#attraction img').first().attr('src',json.images[0].url);
   $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
+  console.log(json.classifications[0].genre.name);
 }
 
 
