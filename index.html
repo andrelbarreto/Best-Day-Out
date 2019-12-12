@@ -285,10 +285,37 @@
                                     <p class="title is-4">Dining Together</p>
                                 </div>
                             </div><!--end of media-->
+                            <div class ="column">
+                              <div class="card-content" id="cardBody">
+                                  <input type="text" placeholder="where are you?" id="userLocation">
+                                  <button id="locationBtn">
+                                  Enter City
+                                  </button>
+                                  <p>Location:
+                                    <span id="location"></span>
+                                  </p>
+                                  <br>
+                                  
+                                  <!--User Search-->
+                                  <input type="text" placeholder="Type of food(breakfast, lunch, ect.." id="userSearch">
+                                  
+                                  <button id="clickMe"> Search
+                                  </button>
+                                  <div id="restaurants">
+                                      <p>Restaurant Name: <span id="restaurantName"></span></p>
+                                      <p>Type: <span id="type"></span>
+                                        <p>Address: <span id="address"></span></p>
+                                        <p>Visit: <span id="webpage"></span></p>
+                                        <spam id="img"></spam>
+                                    </div>
 
-                            <div class="content">
-                                Some Text
+                              </div>
                             </div>
+
+
+                            
+
+
                         </div><!--end of card-content-->
                     </div><!--end of card-->
                     <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
@@ -373,13 +400,13 @@
 <!-- JS AND OTHER SCRIPTS BELOW -->
 
 <!--DO NOT REMOVE-this code makes the drop-down menu toggle back-->
-<script>
+<!-- <script>
 var dropdown = document.querySelector('.dropdown');
     dropdown.addEventListener('click', function(event) {
       event.stopPropagation();
       dropdown.classList.toggle('is-active');
     }); 
-</script>
+</script> -->
 
 <!-- <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script> -->
 
@@ -389,6 +416,10 @@ var dropdown = document.querySelector('.dropdown');
 <script src="weather-api.js"></script>
 <!-- script for Andre Ticketmaster -->
 <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
+
+
+<script src="zomato.js"></script>
+
 </body>
 
 </html>
