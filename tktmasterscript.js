@@ -32,6 +32,7 @@ function selectQuery() {
   stateI = $('#state').val(); 
   dateI = $('#date').val();
   //showFamily = document.getElementById('showFamily').checked;
+  
   //Calls function to determine value of radio button and associate variables to show Family events or 21+
   FamilyorNot();
   
@@ -46,11 +47,14 @@ function selectQuery() {
 }
 // end select query
 
+
+//function that verifies which radio button has been checked and gives values to variables assigned
+//Ticketmaster has two options for family events, one is a string with yes, no or only to show Family events along with others or not at all, and only shows only Family events. other boolean when false will not show only family events
 function FamilyorNot() {
   if(document.getElementById('showFamily').checked) {
     //Family events only radio button is checked
-    showFamily = true;
-    console.log(" Only family events is checked so mark Family as " + showFamily);
+    Family="only";
+    console.log(" Only family events is checked so mark Family as " + Family);
   }
   else if(document.getElementById('over21').checked) {
     //over 21 button is checked
@@ -60,6 +64,8 @@ function FamilyorNot() {
     console.log("What is the value of Family? " + Family);
   }
 }
+
+
 //fuction to show events list using jquery and divs for events-panel and attraction-panel
 function getEvents(page) {
 
