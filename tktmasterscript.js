@@ -11,9 +11,9 @@ var Family="yes";
 var TktAPIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
 // var showFamily = false;
 
+
 //create on click event trigged by main Search button that will check user inputs and initiate queries
-searchButton.on("click", function() {
-  
+searchButton.on("click", function() { 
   console.log(" Show family events state is " + Family);
   //once search button is clicked function selectQuery will change var values to those inputed
   FamilyorNot();
@@ -54,13 +54,25 @@ function selectQuery() {
 // end select query
 
 
+
+function FamilyorNot() {
+  console.log('family or not initialized');
+  
+  Family = $("input[name='answer']:checked").val();
+  
+  console.log('post jquery grab, Family value is: ' + Family);
+  console.log('familyOrNot has run');
+}
+
+
+
+
+
+
 //function that verifies which radio button has been checked and gives values to variables assigned
 //Ticketmaster has two options for family events, one is a string with yes, no or only to show Family events along with others or not at all, and only shows only Family events. other boolean when false will not show only family events
 
-
-
-
-function FamilyorNot() {
+function FamilyorNot2() {
   if(document.getElementById('showFamily').checked) {
     //Family events only radio button is checked
     Family="only";
