@@ -15,7 +15,7 @@ var TktAPIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
 //create on click event trigged by main Search button that will check user inputs and initiate queries
 searchButton.on("click", function() { 
   console.log(" Show family events state is " + Family);
-  //once search button is clicked function selectQuery will change var values to those inputed
+  //once search button is clicked function selectQuery will change var values to those inputed and FamilyorNot will check if user is looking for 21+ or Family events
   FamilyorNot();
   console.log(" Show family events state is " + Family);
   selectQuery();
@@ -35,9 +35,6 @@ function selectQuery() {
   cityI = $('#City').val();
   stateI = $('#state').val(); 
   dateI = $('#date').val();
-  //Family = $("input[name='answer']:checked").val();
- // Family = $("input[name='answer']:checked").attr('id')
-  //showFamily = document.getElementById('showFamily').checked;
   console.log("What is the value of Family? " + Family);
   //Calls function to determine value of radio button and associate variables to show Family events or 21+
   // FamilyorNot();
@@ -54,15 +51,24 @@ function selectQuery() {
 // end select query
 
 
-
-function FamilyorNot() {
-  console.log('family or not initialized');
+function FamilyorNot2() {
+  console.log('familyornot initialized');
   
-  Family = $("input[name='answer']:checked").val();
+  Family = $("input[name='answer']:checked").attr('data-family');
   
   console.log('post jquery grab, Family value is: ' + Family);
   console.log('familyOrNot has run');
 }
+
+
+// function FamilyorNot3() {
+  // console.log('family or not initialized');
+  
+  // Family = $("input[name='answer']:checked").val();
+  
+  // console.log('post jquery grab, Family value is: ' + Family);
+ //  console.log('familyOrNot has run');
+ //  }
 
 
 
@@ -72,17 +78,17 @@ function FamilyorNot() {
 //function that verifies which radio button has been checked and gives values to variables assigned
 //Ticketmaster has two options for family events, one is a string with yes, no or only to show Family events along with others or not at all, and only shows only Family events. other boolean when false will not show only family events
 
-function FamilyorNot2() {
+function FamilyorNot() {
   if(document.getElementById('showFamily').checked) {
     //Family events only radio button is checked
     Family="only";
     console.log(" Only family events is checked so mark Family as " + Family);
   }
-  else if(document.getElementById('over21').checked) {
+  else  {
     //over 21 button is checked
     
     Family="no";
-    console.log("Over 21 is checked so mark it as " + Family);
+    console.log("Over 21 is checked so mark Family as " + Family);
     
   }
   console.log("The function FamilyorNot has run");
