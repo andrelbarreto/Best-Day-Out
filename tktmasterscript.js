@@ -13,6 +13,8 @@ var showFamily = false;
 
 //create on click event trigged by main Search button that will check user inputs and initiate queries
 searchButton.on("click", function() {
+  FamilyorNot();
+  console.log(" Show family events state is " + Family);
   //once search button is clicked function selectQuery will change var values to those inputed
   selectQuery();
   // runs the function that gets json events per page from ticketmaster
@@ -34,7 +36,7 @@ function selectQuery() {
   //showFamily = document.getElementById('showFamily').checked;
   
   //Calls function to determine value of radio button and associate variables to show Family events or 21+
-  FamilyorNot();
+ // FamilyorNot();
   
 
   // console log result of user entry
@@ -86,7 +88,7 @@ function getEvents(page) {
   //json created using GET and parameters with variable values. once search button is pressed the values on the variables change from assigned to user input
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&includeFamily="+Family+"&classificationName="+categoryI+"&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&dates.localdate="+dateI+"&includeFamily="+Family+"&classificationName="+categoryI+"&size=4&page="+page,
     async:true,
     dataType: "json",
     // if succesful call it creates a function for json using getEvents to show each page and showEvents to list each one
