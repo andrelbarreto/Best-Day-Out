@@ -115,8 +115,10 @@ function getEvents(page) {
   //json created using GET and parameters with variable values. once search button is pressed the values on the variables change from assigned to user input
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&size=4&page="+page,
-   // using family parameter and date for url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&dates.localdate="+dateI+"&classificationName="+categoryI+"&includeFamily="+Family+"&size=4&page="+page,
+    //url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&size=4&page="+page,
+
+    // URL Call sorts by date,ascending and uses apikey, city, state, date, and category variable values to GET from API as well as if it will includeFamily events yes, no or only
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&sort=date,asc"+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&dates.localdate="+dateI+"&classificationName="+categoryI+"&includeFamily="+Family+"&size=4&page="+page,
     async:true,
     dataType: "json",
     // if succesful call it creates a function for json using getEvents to show each page and showEvents to list each one
