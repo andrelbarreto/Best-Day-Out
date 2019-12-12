@@ -100,7 +100,7 @@ function getEvents(page) {
 
   $('#events-panel').show();
   $('#attraction-panel').hide();
-// checks for number of pages and return values
+// checks for number of pages and return value to variable page
   if (page < 0) {
     page = 0;
     return;
@@ -145,7 +145,7 @@ function showEvents(json) {
   // creates a variable events with the object json attribute for embedded events
   var events = json._embedded.events;
   var item = items.first();
-  //creates a loop to list all the events
+  //creates a loop to list all the events using name, date and venue for listing
   for (var i=0;i<events.length;i++) {
     item.children('.list-group-item-heading').text(events[i].name);
     item.children('.list-group-item-text').text(events[i].dates.start.localDate);
@@ -154,6 +154,7 @@ function showEvents(json) {
     } catch (err) {
       console.log(err);
     }
+    // will show each item if user clicks on one it calls getAttraction to show details of that specific event
     item.show();
     item.off("click");
     item.click(events[i], function(eventObject) {
@@ -167,6 +168,8 @@ function showEvents(json) {
     item=item.next();
   }
 }
+
+
 // add buttons click to show each page of the json object with events from ticketmaster
 
 //previous allows to return to previous listed events /  items from Ticketmaster
