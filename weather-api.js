@@ -360,11 +360,11 @@ function addProjectedFT () {
 //generate photo background for card based on weather icon
 function setWIconImage () {
 
-    console.log(weatherIcon);
-    console.log(dateInput == currentDate);
-    console.log(cityInput == "Chicago")
-    console.log(currentHour > 17)
-    console.log(currentHour)
+    // console.log(weatherIcon);
+    // console.log(dateInput == currentDate);
+    // console.log(cityInput == "Chicago")
+    // console.log(currentHour > 17)
+    // console.log(currentHour)
 
     //if thunderstorm
     if (weatherIcon.startsWith('t')) {
