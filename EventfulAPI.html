@@ -1,0 +1,66 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="modal-window.js"></script>
+<script type="text/javascript" src="http://api.eventful.com/js/api">
+</script>
+<script type="text/javascript">
+ var app_key = "StjTDwQ27dK9TNkp";
+
+function yyyymmdd() {
+  var now = new Date();
+  var y = now.getFullYear();
+  var m = now.getMonth() + 1;
+  var d = now.getDate();
+  var mm = m < 10 ? '0' + m : m;
+  var dd = d < 10 ? '0' + d : d;
+  return '' + y + mm + dd;
+}
+
+
+function show_alert()
+{
+  var app_key = "StjTDwQ27dK9TNkp";
+
+  var oArgs = {
+            app_key: app_key,
+            id: "20218701",
+            page_size: 25 ,
+  };
+  EVDB.API.call("/events/get", oArgs, function(oData) {
+      console.log(oData);
+    });
+}
+
+function show_alert2()
+{
+   var where   = document.getElementById("where");
+   var date = document.getElementById("when")
+   var query   = document.getElementById("query");
+   var oArgs = {
+      app_key: app_key,
+      q: query.value,
+      where: where.value,
+      "date": "2013061000-2015062000",
+      "include": "tags,categories",
+      page_size: 5,
+      sort_order: "popularity",
+   };
+   EVDB.API.call("/events/search", oArgs, function(oData) {
+      console.log(oData);
+    });
+}
+</script>
+
+<body>
+<form >
+  Where <input id="where"   type="text" name="where" value="San Diego"/> <br>
+  When <input id="when" type="date" name="when" value="2019-12-22"/> <br>
+  Query <input id="query"   type="text" name="query" value="music"/> <br>
+</form>
+<input type="button" onclick="show_alert()" value="Single Event Lookup " /> <br>
+<input type="button" onclick="show_alert2()" value="Filtered query " /> <br>
+<br>
+<br>
+
+</body>
+</html>
