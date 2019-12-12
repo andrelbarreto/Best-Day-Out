@@ -399,7 +399,8 @@ function setWIconImage () {
         }
 
          //if it's today and it's the evening, display an evening variable
-         if (dateInput == currentDate && currentHour > 17) {
+         if (dateInput == currentDate && currentHour >= 17) {
+             
 
             weatherImage = $('#weather-image').attr('src', 'images/weather/wnight2.jpg');
             
