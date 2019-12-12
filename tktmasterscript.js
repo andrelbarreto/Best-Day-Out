@@ -104,7 +104,8 @@ function getEvents(page) {
 }
 
 
-//function to parse date to show each event
+//function to parse data to show each event
+//The Discovery API for Ticketmaster has four main entities: event, attraction, classification, and venue:
 function showEvents(json) {
   // create variables starting with jquery using the list-group-item from html
   var items = $('#events .list-group-item');
