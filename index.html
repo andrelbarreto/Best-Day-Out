@@ -30,13 +30,10 @@
                 <div class="container">
                     <div class="navbar-brand ">
 
-                        <!-- Bulma logo
-                        <a class="navbar-item" href="">
-                            <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
-                        </a> -->
+                        <h1 class="title main-t has-text-light has-text-weight-bold is-italic">Your Best Day Out</h1>
 
                         <!--navbar burger -->
-                            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
@@ -48,8 +45,8 @@
                             <div class="tabs is-right">
                                 <ul>
                                     <li class="is-active"><a>Home</a></li>
-                                    <li><a href="">Our Team</a></li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><a href="our-team.html">Our Team</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
                                 </ul> 
 
                             </div> <!--end of tab is-right-->
@@ -72,15 +69,15 @@
 
                 <h2 class="title has-text-success">
                 I am looking for...
-                </h2>
+                </h2> 
 
                 <!--radio buttons for category-->
                 <div class="control has-text-primary has-text-centered has-text-weight-bold">
-                    <label class="radio">
-                      <input type="radio" name="answer">
+                    <label class="radio" id="showFamily">
+                      <input type="radio" value="only" name="answer">
                       Family Event
                     </label>
-                    <label class="radio">
+                    <label class="radio" value="no" id="over21">
                       <input type="radio" name="answer">
                       Event for 21+
                     </label>
@@ -155,13 +152,14 @@
                 </div> end of Category dropdown -->
 
                 <!--location-->
-                <div class="column">
+                <div class="column is-2 is-offset-4">
                     <input class="input" id="City" type="text" placeholder="City">
                 </div>
 
                 <!-- List of US states -->
-                <div class="select">
-                <select name="state" id="state">
+                <div class="column is-2">
+                    <div class="select">
+                        <select name="state" id="state">
                         <option value="Select a State">Select a State</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -214,16 +212,18 @@
                         <option value="WV">West Virginia</option>
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
-                </select>  
+                        </select>  
+                    </div>
                 </div><!-- end of US states-->
 
-                <!--date picker-->
-                <div class="column">
-                    <input type="date" id="date">
-                    
-                </div>
-
             </div> <!--end of container for search options-->
+
+            <!--date picker-->
+            <div class="column">
+                <input type="date" id="date">
+                
+            </div>
+
 
             <button class="button is-primary">Search</button>
 
@@ -240,12 +240,96 @@
 
     <section class="section"> 
         <div class="container has-text-centered">
-            <h2 class="title is-size-4">Find your event - Plan dining out - With your family or friends - See weather forecast</h2>
+            <h2 class="title is-size-4">Find your event -- Plan dining out -- See weather forecast</h2>
             <h2 class="subtitle is-size-4 is-italic">Plan your Best Day Out - all planning in one place!</h2>
             
+          <div class="row is-centered" style="padding: 2rem"></div>
+
             <div class="columns is-centered" style="padding: 2rem"> <!--3 cards with img and text-->
-                <!-- widget for ticketmaster !-->
-                <div w-type="event-discovery" w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="450" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Chicago" w-period="week" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_79seb" w-countrycode="US" w-source="" w-branding="Ticketmaster" w-showfulleventsnames="true" w-latlong=""></div>
+                
+                
+                  <!-- Widget for Ticketmaster - Visual panels that allow costumer to click through, and once they click on one a tab with ticketmaster website selling tickets for event appears -->
+
+                  <!-- <div  
+                  w-type="event-discovery" 
+                  w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" 
+                  w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA" 
+                  w-keyword="" 
+                  w-theme="simple" 
+                  w-colorscheme="light" 
+                  w-width="650" 
+                  w-height="800" 
+                  w-size="25" 
+                  w-border="0" 
+                  w-borderradius="4" 
+                  w-postalcode="" 
+                  w-radius="25" 
+                  w-city="Chicago" 
+                  w-period="day" 
+                  w-layout="horizontal" 
+                   w-proportion="custom" 
+                   w-titlelink="off" 
+                   w-sorting=""
+                   w-id="id_eu287e" 
+                   w-countrycode="US" 
+                   w-branding="Ticketmaster" 
+                   w-latlong="" 
+                   w-classificationname="" 
+                   w-titlecolor="#ffffff" 
+                   w-titlehovercolor="#ffffff" 
+                   w-arrowcolor="#ffffff" 
+                   w-arrowhovercolor="#009cde" 
+                   w-datecolor="#ffffff" 
+                   w-descriptioncolor="#ffffff" 
+                   w-countercolor="#b7c9d3" 
+                   w-bordercolor="#b7c9d3" 
+                   w-backgroundcolor="#b7c9d3" 
+                   w-buybuttonbackgroundcolor="#009cde" 
+                   w-buybuttonbackgroundhovercolor="#2A7CC7" 
+                   w-buybuttontextcolor="#ffffff" 
+                   w-poweredbybackgroundcolor="#b7c9d3" 
+                   w-showmorebuttonbackgroundcolor="#2888b1" 
+                   w-showmorebuttonbackgroundhovercolor="#1e779c" 
+                   w-showmorebuttontextcolor="#ffffff" 
+                   w-loadingeventspinnercolor="#2888b1"
+                   w-gridcolumns="3"></div>  End of ticketmaster widget -->
+
+
+                <div id="Ticketmaster-widget" 
+                w-type="event-discovery" 
+                w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" 
+                w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA"
+                w-keyword="" 
+                w-theme="simple" 
+                w-colorscheme="light" 
+                w-width="650" 
+                w-height="650" 
+                w-size="25" 
+                w-border="0" 
+                w-borderradius="4" 
+                w-postalcode="" 
+                w-radius="25" 
+                w-city="Chicago" 
+                w-period="week" 
+                w-layout="vertical" 
+                w-attractionid="" 
+                w-promoterid="" 
+                w-venueid="" 
+                w-affiliateid="" w-segmentid="" 
+                w-proportion="custom" 
+                w-titlelink="off" 
+                w-sorting="dateAscending" 
+                w-id="id_79seb" 
+                w-countrycode="US" 
+                w-source="" 
+                w-branding="Ticketmaster" 
+                w-showfulleventsnames="true" 
+                w-latlong=""></div>
+
+                <!-- Wiget above uses API keys for ticketmaster and Google to provide information based in city, with frame before any choices entered showing events in Chicago
+                  & 25 miles radius starting that day and for the week -->
+               
+               
                 <!--Family Event
                     <div class="column">
                         <div class="card">
@@ -270,14 +354,14 @@
                         <p class="is-size-7">Photo by Brett Sayles on Pexels</p>
                 </div> -->
 
-            <!--Restaurant-->
+            <!--Restaurant
                 <div class="column">
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-2by1">
                                 <img src="images/photo-1466978913421-dad2ebd01d17.jpg" alt="Dining Out">
                             </figure>
-                        </div> <!--end of card image-->
+                        </div> 
 
                         <div class="card-content">
                             <div class="media">
@@ -301,33 +385,28 @@
                                   
                                   <button id="clickMe"> Search
                                   </button>
+                                  <div class="restaurant-cont"></div>
                                   <div id="restaurants">
-                                      <p>Restaurant Name: <span id="restaurantName"></span></p>
+                                      <!-- <p>Restaurant Name: <span id="restaurantName"></span></p>
                                       <p>Type: <span id="type"></span>
                                         <p>Address: <span id="address"></span></p>
-                                        <p>Visit: <span id="webpage"></span></p>
-                                        <spam id="img"></spam>
-                                    </div>
-
+                                        <p>Rating <span id="rating"></span></p>
+                                        <span id="img"></span> -->
+                                    </div></div>
                               </div>
                             </div>
-
-
-                            
-
-
                         </div><!--end of card-content-->
                     </div><!--end of card-->
                     <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
                     
-                </div><!--end of column/Restaurant-->
+                </div>end of column/Restaurant-->
                 
 
         
         <!-- div for weather information -->
-        <div class="column" style="min-width:350px;">
+        <div class="column is-one-third is-offset-1" id="weather-column" style="min-width:350px;">
 
-            <div class="card"  id="weather">
+            <div class="card"  id="weather" style="min-height: 600px;">
   
               <!-- primary weather details will overlay this image -->
               <div class="card-image">
@@ -346,7 +425,8 @@
               </div>
               
               <div class="card-content">
-                    
+                
+                <!-- forecast weather details will pull into this div -->
                 <div class="content" id="weather-forecast">
               
                 </div>
@@ -371,7 +451,106 @@
           <!-- end column -->
           </div>
            
-            </div> <!--end of cards-->
+        </div> <!--end of cards-->
+
+        <div class="row is-centered" style="padding: 2rem"></div> 
+
+          <div class="columns is-centered" style="padding: 2rem"> <!--2 cards with img and text-->
+
+            <!-- Event Listings for ticketmaster !-->
+
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-6">
+                <div id='events-panel' class="panel is-link">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Events</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div id="events" class="list-group">
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Event title</h4>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="venue"></p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <nav>
+                      <ul class="pager">
+                        <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
+                        <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+                
+                <div id='attraction-panel' class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Attraction</h3>
+                  </div>
+                  <div id="attraction" class="panel-body">
+                    <h4 class="list-group-item-heading">Attraction title</h4>
+                    <img class="col-xs-12" src="">
+                    <p id="classification"></p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            
+             <!--Restaurant -->
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-2by1">
+                                <img src="images/photo-1466978913421-dad2ebd01d17.jpg" alt="Dining Out">
+                            </figure>
+                        </div> 
+
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4">Dining Together</p>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                Some Text
+                            </div>
+                        </div>
+                    </div>
+                    <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
+                    
+                </div> <!--end of column/Restaurant-->
+                
+          </div> <!-- End of columns for second row-->
+        </div> <!-- End of second row-->
 
         </div> <!--end of container-->
     </section> <!--end of section for some text/cards-->
@@ -379,12 +558,27 @@
     <footer class="footer">
             <div class="content has-text-centered">
               <p>
-                Some text in footer
+                Group Project01 for 2019/2020 NU Coding Bootcamp
               </p>
             </div>
 
     <!-- CREDITS -->
     <div class="content has-text-centered">
+
+            <p>
+                <a href="">
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                </a>
+                <a href="">
+                    <i class="fab fa-twitter-square fa-2x"></i>
+                </a>
+                <a href="">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="">
+                    <i class="fab fa-snapchat fa-2x"></i>
+                </a>
+            </p>
 
         <a href="https://bulma.io" >
         <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
@@ -415,6 +609,7 @@ var dropdown = document.querySelector('.dropdown');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="weather-api.js"></script>
 <!-- script for Andre Ticketmaster -->
+<script src="tktmasterscript.js"></script>
 <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
 
 
