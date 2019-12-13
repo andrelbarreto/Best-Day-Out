@@ -91,6 +91,7 @@ function FamilyorNot() {
     console.log("Over 21 is checked so mark Family as " + Family);
     
   }
+  // console logs if the function did run
   console.log("The function FamilyorNot has run");
 }
 
