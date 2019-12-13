@@ -5,7 +5,7 @@ var ticketMatsterWidgetTemplate = document.getElementById('Ticketmaster-widget')
 var searchButton = $(".button");
 var cityI= "Chicago";
 var stateI = "IL";
-var dateI = "12/12/2019";
+var dateI = "2019-12-13";
 var categoryI= "";
 var Family="yes";
 var TktAPIKey = "MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC";
@@ -48,7 +48,7 @@ function selectQuery() {
   console.log(' Date entered: ' + dateI);
   console.log(' City entered: ' + cityI);
   console.log(' State entered: ' + stateI);
-  console.log("Show family events only is" + Family);
+  console.log("Show family events only is " + Family);
 
 }
 // end select query
@@ -73,6 +73,7 @@ function FamilyorNot() {
     console.log("Over 21 is checked so mark it as " + Family);
     
   }
+  // console logs if the function did run
   console.log("The function FamilyorNot has run");
 }
 
@@ -97,8 +98,10 @@ function getEvents(page) {
   //json created using GET and parameters with variable values. once search button is pressed the values on the variables change from assigned to user input
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&size=4&page="+page,
-   // using family parameter and date for url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&dates.localdate="+dateI+"&classificationName="+categoryI+"&includeFamily="+Family+"&size=4&page="+page,
+    //url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&size=4&page="+page,
+
+    // URL Call sorts by date,ascending and uses apikey, city, state, date, and category variable values to GET from API as well as if it will includeFamily events yes, no or only
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+TktAPIKey+"&sort=date,asc"+"&city="+cityI+"&countryCode=US"+"&state="+stateI+"&classificationName="+categoryI+"&includeFamily="+Family+"&size=4&page="+page,
     async:true,
     dataType: "json",
     // if succesful call it creates a function for json using getEvents to show each page and showEvents to list each one
