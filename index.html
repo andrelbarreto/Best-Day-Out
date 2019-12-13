@@ -83,23 +83,12 @@
                     </label>
                </div> <!--end of radio for category-->
 
-                <!--radio buttons for category
-                <div class="control has-text-primary has-text-centered has-text-weight-bold">
-                    <label class="radio" id="showFamily">
-                      <input type="radio" value="only" name="answer">
-                      Family Event
-                    </label>
-                    <label class="radio" value="no" id="over21">
-                      <input type="radio" name="answer">
-                      Event for 21+
-                    </label>
-                </div> end of radio for category-->
 
                 <br>
 
             <div class="container columns buttons-container"> <!--search options-->
 
-                <!--Type 
+                <!--Type Category to be implemented in FUTURE VERSION
                 <div class="dropdown is-active column"> 
                         <div class="dropdown-trigger">
                           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -109,26 +98,6 @@
                             </span>
                           </button>
                         </div>
-
-                        
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                          <div class="dropdown-content">
-                            <a href="#" class="dropdown-item">
-                            Event Type 1
-                            </a>
-                            <a class="dropdown-item">
-                            Event Type 2
-                            </a>
-                            <a href="#" class="dropdown-item is-active">
-                            Event Type 3
-                            </a>
-                            <a href="#" class="dropdown-item">
-                            Event Type 4
-                            </a>
-                            
-                          </div> 
-                        </div> 
-                </div> end of Event Type dropdown
 
                 dropdown for Category
                 <div class="dropdown is active column"> 
@@ -263,7 +232,7 @@
                   <!-- Widget for Ticketmaster - Visual panels that allow costumer to click through, and once they click on one a tab with ticketmaster website selling tickets for event appears -->
 
 
-                   <!-- Ticketmaster widget website for custom date was not running properly, it returned no items so it has been changed to show entire week
+                   <!-- Ticketmaster widget website for custom specific date was not running properly ITSELF, it returned no items so it has been changed to show entire week
                      
                   <div id="Ticketmaster-widget"
                    w-type="event-discovery"
@@ -298,7 +267,7 @@
                    w-latlong=""></div> -->
 
 
-                   
+
                <!-- Beginning of div with all parameters to display ticketmaster widget -->
 
                <div id="Ticketmaster-widget" 
@@ -336,48 +305,6 @@
 
                 <!-- Wiget above uses API keys for ticketmaster and Google to provide information based in city, with frame before any choices entered showing events in Chicago
                   & 25 miles radius starting that day and for the week -->
-               
-               
-                <!--Family Event
-                    <div class="column">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-2by1">
-                                    <img src="images/pexels-photo-1378866.jpeg" alt="Family Event">
-                                </figure>
-                            </div> 
-
-                            <div class="card-content">
-                                <div class="media">
-                                    <div class="media-content">
-                                        <p class="title is-4">Family Event</p>
-                                    </div>
-                                </div>
-    
-                                <div class="content">
-                                    Some Text
-                                </div>
-                            </div>
-                        </div>
-                        <p class="is-size-7">Photo by Brett Sayles on Pexels</p>
-                </div> -->
-
-            <!--Restaurant
-                <div class="column">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-2by1">
-                                <img src="images/photo-1466978913421-dad2ebd01d17.jpg" alt="Dining Out">
-                            </figure>
-                        </div> 
-
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <p class="title is-4">Dining Together</p>
-                                </div>
-                            </div>  end of media-->
-                            
                 
 
         
@@ -540,26 +467,6 @@
       <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
       
   </div> <!--end of column/Restaurant-->
-
-                <!-- <div class="column">
-                    <div class="card">
-                        
-
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <p class="title is-4">Dining Together</p>
-                                </div>
-                            </div>
-
-                            <div class="content">
-                                Some Text
-                            </div>
-                        </div>
-                    </div>
-                    <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
-                    
-                </div> end of column/Restaurant -->
                 
           </div> <!-- End of columns for second row-->
         </div> <!-- End of second row-->
@@ -605,26 +512,19 @@
     
 <!-- JS AND OTHER SCRIPTS BELOW -->
 
-<!--DO NOT REMOVE-this code makes the drop-down menu toggle back-->
-<!-- <script>
-var dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('click', function(event) {
-      event.stopPropagation();
-      dropdown.classList.toggle('is-active');
-    }); 
-</script> -->
+
 
 <!-- <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script> -->
 
-<!-- Script for Sarah D -->
+<!-- Script for Sarah D Weather -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="weather-api.js"></script>
-<!-- script for Andre Ticketmaster -->
+<!-- script for Andre Ticketmaster and Events listing -->
 <script src="tktmasterscript.js"></script>
 <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
 
-
+<!-- Script for Bryeanne Zomato Restaurants-->
 <script src="zomato.js"></script>
 
 </body>
