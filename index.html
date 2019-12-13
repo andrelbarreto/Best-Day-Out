@@ -72,6 +72,18 @@
                 </h2> 
 
                 <!--radio buttons for category-->
+               <div class="control has-text-primary has-text-centered has-text-weight-bold">
+                    <label class="radio" id="showFamily">
+                         <input type="radio" data-family="only" value="only" name="answer">
+                         Family Event
+                    </label>
+                    <label class="radio" data-family="no" value="no" id="over21">
+                         <input type="radio" name="answer">
+                        Event for 21+
+                    </label>
+               </div> <!--end of radio for category-->
+
+                <!--radio buttons for category
                 <div class="control has-text-primary has-text-centered has-text-weight-bold">
                     <label class="radio" id="showFamily">
                       <input type="radio" value="only" name="answer">
@@ -81,7 +93,7 @@
                       <input type="radio" name="answer">
                       Event for 21+
                     </label>
-                </div> <!--end of radio for category-->
+                </div> end of radio for category-->
 
                 <br>
 
@@ -250,81 +262,77 @@
                 
                   <!-- Widget for Ticketmaster - Visual panels that allow costumer to click through, and once they click on one a tab with ticketmaster website selling tickets for event appears -->
 
-                  <!-- <div  
-                  w-type="event-discovery" 
-                  w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" 
-                  w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA" 
-                  w-keyword="" 
-                  w-theme="simple" 
-                  w-colorscheme="light" 
-                  w-width="650" 
-                  w-height="800" 
-                  w-size="25" 
-                  w-border="0" 
-                  w-borderradius="4" 
-                  w-postalcode="" 
-                  w-radius="25" 
-                  w-city="Chicago" 
-                  w-period="day" 
-                  w-layout="horizontal" 
+
+                   <!-- Ticketmaster widget website for custom date was not running properly, it returned no items so it has been changed to show entire week
+                     
+                  <div id="Ticketmaster-widget"
+                   w-type="event-discovery"
+                   w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC"
+                   w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA" 
+                   w-keyword="" 
+                   w-theme="simple" 
+                   w-colorscheme="light" 
+                   w-width="650" w-height="650" 
+                   w-size="25" 
+                   w-border="0" w-borderradius="4" 
+                   w-postalcode="" 
+                   w-radius="25" 
+                   w-city="Chicago" 
+                   w-period="custom" 
+                   w-layout="vertical" 
+                   w-attractionid="" 
+                   w-promoterid="" 
+                   w-venueid="" 
+                   w-affiliateid="" 
+                   w-segmentid="" 
                    w-proportion="custom" 
                    w-titlelink="off" 
-                   w-sorting=""
-                   w-id="id_eu287e" 
+                   w-sorting="dateAscending" 
+                   w-id="id_2n5hjj" 
                    w-countrycode="US" 
-                   w-branding="Ticketmaster" 
-                   w-latlong="" 
-                   w-classificationname="" 
-                   w-titlecolor="#ffffff" 
-                   w-titlehovercolor="#ffffff" 
-                   w-arrowcolor="#ffffff" 
-                   w-arrowhovercolor="#009cde" 
-                   w-datecolor="#ffffff" 
-                   w-descriptioncolor="#ffffff" 
-                   w-countercolor="#b7c9d3" 
-                   w-bordercolor="#b7c9d3" 
-                   w-backgroundcolor="#b7c9d3" 
-                   w-buybuttonbackgroundcolor="#009cde" 
-                   w-buybuttonbackgroundhovercolor="#2A7CC7" 
-                   w-buybuttontextcolor="#ffffff" 
-                   w-poweredbybackgroundcolor="#b7c9d3" 
-                   w-showmorebuttonbackgroundcolor="#2888b1" 
-                   w-showmorebuttonbackgroundhovercolor="#1e779c" 
-                   w-showmorebuttontextcolor="#ffffff" 
-                   w-loadingeventspinnercolor="#2888b1"
-                   w-gridcolumns="3"></div>  End of ticketmaster widget -->
+                   w-source="" 
+                   w-branding="TicketWeb" 
+                   w-startdatetime="2019-12-12" 
+                   w-enddatetime="2019-12-13" 
+                   w-showfulleventsnames="true" 
+                   w-latlong=""></div> -->
 
 
-                <div id="Ticketmaster-widget" 
-                w-type="event-discovery" 
-                w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" 
-                w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA"
-                w-keyword="" 
-                w-theme="simple" 
-                w-colorscheme="light" 
-                w-width="650" 
-                w-height="650" 
-                w-size="25" 
-                w-border="0" 
-                w-borderradius="4" 
-                w-postalcode="" 
-                w-radius="25" 
-                w-city="Chicago" 
-                w-period="week" 
-                w-layout="vertical" 
-                w-attractionid="" 
-                w-promoterid="" 
-                w-venueid="" 
-                w-affiliateid="" w-segmentid="" 
-                w-proportion="custom" 
-                w-titlelink="off" 
-                w-sorting="dateAscending" 
-                w-id="id_79seb" 
-                w-countrycode="US" 
-                w-source="" 
-                w-branding="Ticketmaster" 
-                w-showfulleventsnames="true" 
-                w-latlong=""></div>
+                   
+               <!-- Beginning of div with all parameters to display ticketmaster widget -->
+
+               <div id="Ticketmaster-widget" 
+                   w-type="event-discovery" 
+                   w-tmapikey="MRyvwbGL4H4yvINfi4pGByvFdAPc4yrC" 
+                   w-googleapikey="AIzaSyBuxz9wHhmhejG5FFi78g7JhQN4esJ36YA"
+                   w-keyword="" 
+                   w-theme="simple" 
+                   w-colorscheme="light" 
+                   w-width="650" 
+                   w-height="650" 
+                   w-size="25" 
+                   w-border="0" 
+                   w-borderradius="4" 
+                   w-postalcode="" 
+                   w-radius="25" 
+                   w-city="Chicago" 
+                   w-period="week" 
+                   w-layout="vertical" 
+                   w-attractionid="" 
+                   w-promoterid="" 
+                   w-venueid="" 
+                   w-affiliateid="" w-segmentid="" 
+                   w-proportion="custom" 
+                   w-titlelink="off" 
+                   w-sorting="dateAscending" 
+                   w-id="id_79seb" 
+                   w-countrycode="US" 
+                   w-source="" 
+                   w-branding="TicketWeb"
+                   w-showfulleventsnames="true" 
+                   w-latlong="">
+                 </div> 
+
 
                 <!-- Wiget above uses API keys for ticketmaster and Google to provide information based in city, with frame before any choices entered showing events in Chicago
                   & 25 miles radius starting that day and for the week -->
@@ -368,38 +376,8 @@
                                 <div class="media-content">
                                     <p class="title is-4">Dining Together</p>
                                 </div>
-                            </div><!--end of media-->
-                            <div class ="column">
-                              <div class="card-content" id="cardBody">
-                                  <input type="text" placeholder="where are you?" id="userLocation">
-                                  <button id="locationBtn">
-                                  Enter City
-                                  </button>
-                                  <p>Location:
-                                    <span id="location"></span>
-                                  </p>
-                                  <br>
-                                  
-                                  <!--User Search-->
-                                  <input type="text" placeholder="Type of food(breakfast, lunch, ect.." id="userSearch">
-                                  
-                                  <button id="clickMe"> Search
-                                  </button>
-                                  <div class="restaurant-cont"></div>
-                                  <div id="restaurants">
-                                      <!-- <p>Restaurant Name: <span id="restaurantName"></span></p>
-                                      <p>Type: <span id="type"></span>
-                                        <p>Address: <span id="address"></span></p>
-                                        <p>Rating <span id="rating"></span></p>
-                                        <span id="img"></span> -->
-                                    </div></div>
-                              </div>
-                            </div>
-                        </div><!--end of card-content-->
-                    </div><!--end of card-->
-                    <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
-                    
-                </div>end of column/Restaurant-->
+                            </div>  end of media-->
+                            
                 
 
         
@@ -525,13 +503,47 @@
             </div>
             
              <!--Restaurant -->
-                <div class="column">
+
+             <div class ="column">
+                <div class="card-content" id="cardBody">
+                    <div class="card-image">
+                        <figure class="image is-2by1">
+                            <img src="images/photo-1466978913421-dad2ebd01d17.jpg" alt="Dining Out">
+                        </figure>
+                    </div> 
+                    <input type="text" placeholder="where are you?" id="userLocation">
+                    <button id="locationBtn">
+                    Enter City
+                    </button>
+                    <p>Location:
+                      <span id="location"></span>
+                    </p>
+                    <br>
+                    
+                    <!--User Search-->
+                    <input type="text" placeholder="Type of food(breakfast, lunch, ect.." id="userSearch">
+                    
+                    <button id="clickMe"> Search
+                    </button>
+                    <div class="restaurant-cont"></div>
+                    <div id="restaurants">
+                        <!-- <p>Restaurant Name: <span id="restaurantName"></span></p>
+                        <p>Type: <span id="type"></span>
+                          <p>Address: <span id="address"></span></p>
+                          <p>Rating <span id="rating"></span></p>
+                          <span id="img"></span> -->
+                      </div></div>
+                </div>
+              </div>
+          </div><!--end of card-content-->
+      </div><!--end of card-->
+      <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
+      
+  </div> <!--end of column/Restaurant-->
+
+                <!-- <div class="column">
                     <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-2by1">
-                                <img src="images/photo-1466978913421-dad2ebd01d17.jpg" alt="Dining Out">
-                            </figure>
-                        </div> 
+                        
 
                         <div class="card-content">
                             <div class="media">
@@ -547,7 +559,7 @@
                     </div>
                     <p class="is-size-7">Photo by Dan Gold on Unsplash</p>
                     
-                </div> <!--end of column/Restaurant-->
+                </div> end of column/Restaurant -->
                 
           </div> <!-- End of columns for second row-->
         </div> <!-- End of second row-->
